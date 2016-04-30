@@ -4,7 +4,8 @@
   "description": "A website dedicated to hacker apparel",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "express3-handlebars": "^0.5.2"
   },
   "devDependencies": {},
   "scripts": {
