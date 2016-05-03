@@ -1,11 +1,11 @@
 <!doctype html>
 <html>
 <head>
-    <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
+    <link href="../../public/stylesheets/main.css" type="text/css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
+    <script src="../../public/javascript/facebook.js" type="application/javascript"></script>
 
 
 
@@ -15,23 +15,7 @@
 
 <body>
     <!-- facebook sdk for javascript -->
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '1027635843994172',
-          xfbml      : true,
-          version    : 'v2.6'
-        });
-      };
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
+    <div id="fb-root"></div>
     <!-- Jumbotron for page header -->
 
     <div class="jumbotron">
@@ -88,7 +72,12 @@
                 </ul>
                 <!-- end of experimental -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Login</a></li>
+                    <li>
+                        <a href="#">
+                            <div hidden id="logged"></div>
+                            <div class="fb-login-button" id="loginButton" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+                        </a>
+                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -107,7 +96,6 @@
 
 
         {{{body}}}
-
 
 
 </body>

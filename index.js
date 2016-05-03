@@ -1,5 +1,18 @@
 var express = require('express');
+var path = require('path');
+// var favicon = require('serve-favicon');
+// var logger = require('morgan');
+// var cookieParser = require('cookie-parser');
+// var bodyParser = require('body-parser');
+// var session = require('express-session');
+// var SessionStore = require('express-mysql-session');
+
+
+
+
+
 var app = express();
+
 // handlebars setup
 var handlebars = require('express3-handlebars').create({defaultLayout:'main'});
 app.engine('handlebars', handlebars.engine);
@@ -31,6 +44,7 @@ app.use(function(req,res){
     res.status(404);
     res.render('404');
 });
+
 //custom 500 page
 app.use(function(err, req, res, next){
     console.error(err.stack);
