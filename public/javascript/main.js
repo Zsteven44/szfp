@@ -6,14 +6,16 @@ var displayModalTitle;
 var displayModalMessage;
 
 $(document).ready(function () {
-  facebook_login_button = $("#bft_fb_loginbutton");
-  facebook_login_button_li = $("#bft_fb_loginbutton_li");
-  bft_settingsbutton_li = $("#bft_settingsbutton_li");
-  displayModal = $("#bft_modal");
-  displayModalTitle = $("#bft_modal_title");
-  displayModalMessage = $("#bft_modal_message");
+  console.log("document ready detected");
+  facebook_login_button = $("#loginButton2");
+//  facebook_login_button_li = $("#bft_fb_loginbutton_li");
+//  bft_settingsbutton_li = $("#bft_settingsbutton_li");
+//  displayModal = $("#bft_modal");
+//  displayModalTitle = $("#bft_modal_title");
+//  displayModalMessage = $("#bft_modal_message");
   facebook_login_button.click(function () {
     logIn();
+    console.log('Click detected');
 
   });
 

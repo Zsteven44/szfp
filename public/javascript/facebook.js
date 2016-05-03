@@ -8,6 +8,7 @@ window.fbAsyncInit = function () {
 };
 
 function logIn() {
+  console.log('Running logIn');
   FB.getLoginStatus(function (response) {
     if (response.status === 'connected') {
       checkLoginStatus(response);
@@ -20,12 +21,14 @@ function logIn() {
 }
 
 function checkLoginStatus(response) {
+  console.log("checkLoginStatus running now");
   if (response.status === 'connected') {
     console.log("Facebook Response: ", response);
     console.log(response);
     FB.api(
       "/" + response.authResponse.userID,
       function (userObjectResponse) {
+        console.log('userObjectResponse running now');
         if (userObjectResponse && !userObjectResponse.error) {
           console.log("User Object ", userObjectResponse);
           FB.api(
@@ -37,8 +40,8 @@ function checkLoginStatus(response) {
 
                 $("#loginButton").hide();
                 $("#logged").show();
-                $("#logged").html(name + "logged in.")
-
+                $("#logged").html(name + "logged in.");
+                console.log(name + 'is logged in');
 
 
               } else {
@@ -57,7 +60,7 @@ function checkLoginStatus(response) {
     console.log("Facebook not connected");
     isConnected(false);
   }
-}
+};
 
 // Load the SDK asynchronously
 (function (d, s, id) {
@@ -67,4 +70,4 @@ function checkLoginStatus(response) {
   js.id = id;
   js.src = "//connect.facebook.net/en_US/sdk.js";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk')); 'facebook-jssdk'));
+}(document, 'script', 'facebook-jssdk'));
