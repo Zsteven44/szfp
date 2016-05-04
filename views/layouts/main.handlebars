@@ -1,14 +1,17 @@
 <!doctype html>
 <html>
 <head>
-    <link href="stylesheets/main.css" type="text/css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <script src="javascript/facebook.js" type="application/javascript"></script>
     <script src="javascript/main.js" type="application/javascript"></script>
+    <
 
 
+    <link href="stylesheets/bootstrap-social.css" type="text/css" rel="stylesheet">
+    <link href="stylesheets/main.css" type="text/css" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ggscrub</title>
@@ -21,8 +24,9 @@
 
     <div class="jumbotron">
         <div class="container">
-            <h1>ggscrub</h1>
-
+            <a href="/" class='jumbotronTitle'>
+                <h1>ggscrub</h1>
+            </a>
             <p>geek apparel</p>
         </div>
     </div>
@@ -44,7 +48,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/about">About <span class="sr-only">(current)</span></a></li>
+                    <li><a href="/about">About <span class="sr-only">(current)</span></a></li>
                     <li><a href="#">See more</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Type <span class="caret"></span></a>
@@ -73,21 +77,23 @@
                 </ul>
                 <!-- end of experimental -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
+                    <li class="account">
                         <a>
-                            <div hidden id="logged"></div>
-                            <div class="fb-login-button" id="loginButton2" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+                            <div hidden id="logged">
+                            </div>
+                            <div id="loginButton2" class="btn btn-block btn-social btn-xs btn-facebook">
+                                <span class="fa fa-facebook"></span>
+                                Login
+
+                            </div>
                         </a>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
+                    <li class="account-settings">
+                        <a>
+                            <div hidden id="logoutButton">
+                                Logout
+                            </div>
+                        </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

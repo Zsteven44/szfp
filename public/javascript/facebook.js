@@ -38,10 +38,11 @@ function checkLoginStatus(response) {
                 var photoURL = pictureObjectResponse.data.url;
                 var name = userObjectResponse.name;
 
-                $("#loginButton").hide();
+                $("#loginButton2").hide();
                 $("#logged").show();
-                $("#logged").html(name + "logged in.");
-                console.log(name + 'is logged in');
+                $("#logged").html(name + " is logged in");
+                console.log(name + ' is logged in');
+                $('#logoutButton').show();
 
 
               } else {
@@ -71,3 +72,11 @@ function checkLoginStatus(response) {
   js.src = "//connect.facebook.net/en_US/sdk.js";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+
+function logOut() {
+
+    console.log("Logging out user " + name);
+    $("#logged").hide();
+    $("#loginButton2").show();
+    $('#logoutButton').hide();
+};

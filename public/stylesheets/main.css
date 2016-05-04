@@ -14,12 +14,22 @@
     margin:0px;
 }
 
-h1 {
+.title {
 
-    color: blue;
+    color: green;
 
 }
 
 p {
     color: green;
 }
+.jumbotronTitle {
+    color: green;
+    text-decoration:none;
+}
+
+.jumbotronTitle:hover {
+    color: green;
+    text-decoration:none;
+}
+.home block

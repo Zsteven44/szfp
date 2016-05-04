@@ -1,5 +1,6 @@
 var facebook_login_button;
 var facebook_login_button_li;
+var facebook_logout_button;
 var bft_settingsbutton_li;
 var displayModal;
 var displayModalTitle;
@@ -8,6 +9,9 @@ var displayModalMessage;
 $(document).ready(function () {
   console.log("document ready detected");
   facebook_login_button = $("#loginButton2");
+  facebook_logout_button = $("#logoutButton");
+  console.log(facebook_login_button);
+
 //  facebook_login_button_li = $("#bft_fb_loginbutton_li");
 //  bft_settingsbutton_li = $("#bft_settingsbutton_li");
 //  displayModal = $("#bft_modal");
@@ -15,9 +19,14 @@ $(document).ready(function () {
 //  displayModalMessage = $("#bft_modal_message");
   facebook_login_button.click(function () {
     logIn();
-    console.log('Click detected');
-
+    console.log('Login detected');
   });
+
+  facebook_logout_button.click(function() {
+      logOut();
+      console.log('Logout Detected');
+  });
+
 
 });
 
