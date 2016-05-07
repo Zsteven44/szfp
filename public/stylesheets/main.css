@@ -32,4 +32,11 @@ p {
     color: green;
     text-decoration:none;
 }
-.home block
+
+.jumbotronTitle:visited {
+    color: green;
+    text-decoration:none;
+}
+.homeBlock {
+    text-align: center;
+}
