@@ -1,15 +1,11 @@
 var express = require('express');
 var path = require('path');
-// var favicon = require('serve-favicon');
+var favicon = require('serve-favicon');
 // var logger = require('morgan');
-// var cookieParser = require('cookie-parser');
-// var bodyParser = require('body-parser');
-// var session = require('express-session');
-// var SessionStore = require('express-mysql-session');
-
-
-
-
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session = require('express-session');
+var SessionStore = require('express-mysql-session');
 
 var app = express();
 
@@ -22,7 +18,7 @@ app.set('port', process.env.PORT || 3000);
 
 
 
-
+app.use(favicon(__dirname + '/public/img/favicon.ico'))
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req,res){
@@ -37,6 +33,13 @@ app.get('/login', function(req,res){
     res.render('login');
 });
 
+app.get('/tshirts', function(req,res){
+    res.render('tshirts');
+});
+
+app.get('/hoodies', function(req,res){
+    res.render('hoodies');
+});
 
 
 // custom 404 page

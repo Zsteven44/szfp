@@ -5,7 +5,10 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.13.4",
-    "express3-handlebars": "^0.5.2"
+    "express-favicon": "^1.0.1",
+    "express-mysql-session": "^1.0.0",
+    "express3-handlebars": "^0.5.2",
+    "serve-favicon": "^2.3.0"
   },
   "devDependencies": {},
   "scripts": {
