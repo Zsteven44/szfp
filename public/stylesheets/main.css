@@ -37,6 +37,31 @@ p {
     color: green;
     text-decoration:none;
 }
-.homeBlock {
-    text-align: center;
+
+#wrapper {
+margin-top:100px;
+}
+
+#thumbnailPane {
+margin-top:50px;
+}
+
+.footer {
+text-align:center;
+}
+
+#detailsPane {
+margin-top:50px;
+border: solid;
+border-width: 10px;
+background: white;
+}
+
+#itemDetail {
+border: solid;
+border-width: 0px 5px 0 5px;
+}
+#description {
+border:solid;
+border-width:10px;
 }

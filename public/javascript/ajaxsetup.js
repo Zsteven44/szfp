@@ -1,0 +1,33 @@
+window.onload = initPage;
+
+
+
+function initPage() {
+//find thumbnails on page.
+thumbs = document.getElementById("thumbnailPane").getElementsByTagName("img");
+//set the handler for each img.
+for (var i=0; i < thumbs.length; i++) {
+    image=thumbs[i];
+    //create onclick function
+    image.onclick=function() {
+        //find the fullsize image name
+        detailURL = 'img/' + this.title + '-detail.jpg';
+        document.getElementById("itemDetail").src = detailURL;
+        getDetails(this.title);
+        }
+    }
+}
+
+function displayDetails() {
+
+}
+
+function getDetails() {
+
+
+}
+
+function createRequest() {
+
+
+}
