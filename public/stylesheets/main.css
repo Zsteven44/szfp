@@ -65,3 +65,31 @@ border-width: 0px 5px 0 5px;
 border:solid;
 border-width:10px;
 }
+
+.logPage {
+list-style:none;
+margin: 0px;
+}
+.registrationBox {
+    background: white;
+    border-width:5px;
+    border-style: solid;
+    margin-top:20px;
+    padding: 40px 40px 40px 40px;
+}
+
+#username {
+background: #fff url('../img/status.gif') 202px 0 no-repeat;
+padding:0 20px 0 2px;
+width: 198px;
+}
+#username.thinking {
+background-position: 202px -19px;
+}
+#username.approved {
+background-position: 202px -35px;
+}
+#username.denied {
+background-color: #FF8282;
+background-position: 202px -52px;
+}

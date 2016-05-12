@@ -6,7 +6,7 @@ $details = array (
 	'item3'	=>	"<p>Item 3.</p>",
 	'item4'	=>	"<p>Item 4.</p>"
 );
-
-echo $details[$_REQUEST['ImageID']];
+$imagefile = $_GET["ImageId"];
+echo $details[$_GET['ImageID']];
 
 ?>

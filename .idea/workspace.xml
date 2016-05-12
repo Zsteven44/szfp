@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1c22673-237e-49c4-a89a-b6f8849e8f55" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/getDetails.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/status.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/checkName.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascript/utils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascript/validation.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/getDetails.php" afterPath="$PROJECT_DIR$/public/getDetails.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/ajaxsetup.js" afterPath="$PROJECT_DIR$/public/javascript/ajaxsetup.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/main.css" afterPath="$PROJECT_DIR$/public/stylesheets/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layouts/main.handlebars" afterPath="$PROJECT_DIR$/views/layouts/main.handlebars" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/login.handlebars" afterPath="$PROJECT_DIR$/views/login.handlebars" />
     </list>
     <ignored path="szfp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,14 +32,54 @@
     <favorites_list name="szfp" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.80251044">
+    <splitter split-orientation="horizontal" split-proportion="0.63162184">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="validation.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/javascript/validation.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="15" column="16" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="16" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="checkName.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/public/checkName.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.11221945">
+                  <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="utils.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/javascript/utils.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="login.handlebars" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/login.handlebars">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-15.625">
+                  <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="main.handlebars" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/layouts/main.handlebars">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-6.875">
-                  <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+                <state vertical-scroll-proportion="-8.75">
+                  <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -41,44 +88,10 @@
           <file leaf-file-name="home.handlebars" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/home.handlebars">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-18.125">
-                  <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+                <state vertical-scroll-proportion="0.625">
+                  <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
                   <folding />
                 </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="blank-detail.jpg" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/img/blank-detail.jpg">
-              <provider selected="true" editor-type-id="images">
-                <state />
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ajaxsetup.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/javascript/ajaxsetup.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="getDetails.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/public/getDetails.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="item1-detail.jpg" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/img/item1-detail.jpg">
-              <provider selected="true" editor-type-id="images">
-                <state />
               </provider>
             </entry>
           </file>
@@ -86,6 +99,16 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="facebook.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/javascript/facebook.js">
               <provider selected="true" editor-type-id="text-editor">
@@ -99,8 +122,8 @@
           <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.36181575">
-                  <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+                <state vertical-scroll-proportion="0.90648377">
+                  <caret line="93" column="32" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
                   <folding />
                 </state>
               </provider>
@@ -123,7 +146,6 @@
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/main.css" />
         <option value="$PROJECT_DIR$/views/layouts/main.css" />
-        <option value="$PROJECT_DIR$/views/login.handlebars" />
         <option value="$PROJECT_DIR$/public/main.handlebars" />
         <option value="$PROJECT_DIR$/public/javascript/facebook1.js" />
         <option value="$PROJECT_DIR$/public/javascript/main.js" />
@@ -132,12 +154,15 @@
         <option value="$PROJECT_DIR$/views/hoodies.handlebars" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/seeds/db.js" />
-        <option value="$PROJECT_DIR$/public/stylesheets/main.css" />
         <option value="$PROJECT_DIR$/views/home.handlebars" />
         <option value="$PROJECT_DIR$/getDetails.php" />
-        <option value="$PROJECT_DIR$/views/layouts/main.handlebars" />
-        <option value="$PROJECT_DIR$/public/javascript/ajaxsetup.js" />
         <option value="$PROJECT_DIR$/public/getDetails.php" />
+        <option value="$PROJECT_DIR$/views/login.handlebars" />
+        <option value="$PROJECT_DIR$/public/javascript/ajaxsetup.js" />
+        <option value="$PROJECT_DIR$/public/javascript/utils.js" />
+        <option value="$PROJECT_DIR$/views/layouts/main.handlebars" />
+        <option value="$PROJECT_DIR$/public/stylesheets/main.css" />
+        <option value="$PROJECT_DIR$/public/javascript/validation.js" />
       </list>
     </option>
   </component>
@@ -322,9 +347,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/img" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/public/javascript" />
-      <recent name="$PROJECT_DIR$/public/img" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/views/layouts" />
     </key>
@@ -534,7 +559,7 @@
     <layout>
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15785764" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13530655" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -566,10 +591,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1430585" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15785764" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24947146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -722,13 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/login.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/about.handlebars">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
@@ -754,14 +772,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascript/facebook.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -797,26 +807,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascript/angular.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascript/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -835,39 +829,15 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36181575">
-          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/img/blank-detail.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layouts/main.handlebars">
+    <entry file="file://$PROJECT_DIR$/public/javascript/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.875">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/home.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.125">
-          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascript/ajaxsetup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.046134662">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -875,7 +845,92 @@
     <entry file="file://$PROJECT_DIR$/public/getDetails.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascript/facebook.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascript/ajaxsetup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43017456">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascript/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layouts/main.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.75">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/home.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.625">
+          <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.625">
+          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/status.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.90648377">
+          <caret line="93" column="32" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascript/validation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/checkName.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11221945">
+          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
           <folding />
         </state>
       </provider>

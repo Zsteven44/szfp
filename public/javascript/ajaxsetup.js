@@ -4,6 +4,7 @@ window.onload = initPage;
 
 function initPage() {
 //find thumbnails on page.
+
 thumbs = document.getElementById("thumbnailPane").getElementsByTagName("img");
 //set the handler for each img.
 for (var i=0; i < thumbs.length; i++) {
@@ -20,22 +21,7 @@ for (var i=0; i < thumbs.length; i++) {
 }
 
 
-function createRequest() {
-  try {
-    request = new XMLHttpRequest();
-  } catch (tryMS) {
-    try {
-      request = new ActiveXObject("Msxml2.XMLHTTP");
-    } catch (otherMS) {
-      try {
-        request = new ActiveXObject("Microsoft.XMLHTTP");
-      } catch (failed) {
-        request = null;
-      }
-    }
-  }
-  return request;
-}
+
 
 function getDetails(itemName) {
   request = createRequest();
