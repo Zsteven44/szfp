@@ -1,13 +1,21 @@
 var mysql      = require('mysql');
-var connection = mysql.createConnection({
+var options = {
   host     : 'localhost',
-  user     : '',
-  password : ''
+  user     : 'root',
+  password : '',
+  database : 'steve'
 });
 
-connection.connect();
+var connection = mysql.createConnection(options);
 
-connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-  });
+connection.connect(function (err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
 
-connection.end();
+  console.log('connected as id ' + connection.threadId);
+});
+
+
+module.exports = {options: options, connection: connection};

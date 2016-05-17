@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var SessionStore = require('express-mysql-session');
-
+var connection = require('./seeds/db').connection;
 var app = express();
 
 // handlebars setup
@@ -39,6 +39,20 @@ app.get('/tshirts', function(req,res){
 
 app.get('/hoodies', function(req,res){
     res.render('hoodies');
+});
+
+app.get('/checkName', function(req,res) {
+    connection.query('SELECT * FROM  users' +
+          ' WHERE name = "' + username + '"',
+    function (err, result, fields) {
+        console.log("result: "+result.length);
+
+        if (result.length > 0){
+            res.status(200).send("denied");
+        }else{
+            res.status(200).send("okay");
+        }
+    });
 });
 
 

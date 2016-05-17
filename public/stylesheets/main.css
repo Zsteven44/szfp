@@ -79,17 +79,15 @@ margin: 0px;
 }
 
 #username {
-background: #fff url('../img/status.gif') 202px 0 no-repeat;
-padding:0 20px 0 2px;
-width: 198px;
+
 }
 #username.thinking {
-background-position: 202px -19px;
+background-color: #ffff99;
 }
 #username.approved {
-background-position: 202px -35px;
+background-color: #66ff99;
 }
 #username.denied {
 background-color: #FF8282;
-background-position: 202px -52px;
+
 }
