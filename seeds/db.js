@@ -4,7 +4,7 @@ var options = {
   user     : 'root',
   password : '',
   database : 'steve'
-});
+};
 
 var connection = mysql.createConnection(options);
 

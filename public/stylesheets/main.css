@@ -66,6 +66,7 @@ border:solid;
 border-width:10px;
 }
 
+/* All registration related items */
 .logPage {
 list-style:none;
 margin: 0px;
@@ -77,17 +78,31 @@ margin: 0px;
     margin-top:20px;
     padding: 40px 40px 40px 40px;
 }
-
-#username {
-
+.loginBox {
+    background: white;
+    border-width:5px;
+    border-style: solid;
+    margin-top:20px;
+    padding: 40px 40px 40px 40px;
 }
-#username.thinking {
+.thinking {
 background-color: #ffff99;
 }
-#username.approved {
+.approved {
 background-color: #66ff99;
 }
-#username.denied {
+.denied {
 background-color: #FF8282;
-
+}
+.verified {
+color:green;
+padding-left:20px;
+}
+.rejected {
+color: red;
+padding-left:20px;
+}
+.reviewing {
+color: #cc8800;
+padding-left:20px;
 }
