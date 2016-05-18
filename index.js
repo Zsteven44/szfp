@@ -16,7 +16,8 @@ app.set('view engine', 'handlebars');
 
 app.set('port', process.env.PORT || 3000);
 
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(favicon(__dirname + '/public/img/favicon.ico'))
 app.use(express.static(__dirname + '/public'));
@@ -42,8 +43,9 @@ app.get('/hoodies', function(req,res){
 });
 
 app.get('/checkName', function(req,res) {
+    var username = req.query.username;
     connection.query('SELECT * FROM  users' +
-          ' WHERE name = "' + username + '"',
+          ' WHERE username = "' + username + '"',
     function (err, result, fields) {
         console.log("result: "+result.length);
 
@@ -54,6 +56,17 @@ app.get('/checkName', function(req,res) {
         }
     });
 });
+
+app.post('/registerAccount', function(req,res) {
+    var username = req.body.username;
+    var password = req.body.password;
+    var email = req.body.email;
+    //var firstname
+    //var lastname
+    console.log(username);
+    res.status(200).send();
+
+})
 
 
 // custom 404 page

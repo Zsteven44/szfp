@@ -85,15 +85,7 @@ margin: 0px;
     margin-top:20px;
     padding: 40px 40px 40px 40px;
 }
-.thinking {
-background-color: #ffff99;
-}
-.approved {
-background-color: #66ff99;
-}
-.denied {
-background-color: #FF8282;
-}
+
 .verified {
 color:green;
 padding-left:20px;

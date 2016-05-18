@@ -7,12 +7,12 @@ function initPage1() {
         $('#username').on('blur', checkUsername);
         $('#password').on('blur', passwordStatus);
         $('#email').on('blur', emailStatus);
-        $('#register').prop("disabled", true);
+
+        $('#register').click(checkRegister);
     }
 }
 
 function checkUsername() {
-    document.getElementById("username").className = "thinking";
     $('#usernameEx').text(' Verifying...');
     $('#usernameEx').removeClass('rejected');
     $('#usernameEx').removeClass('verified');
@@ -22,7 +22,7 @@ function checkUsername() {
         if (request == null) {
             alert('Unable to create request');
         } else {
-        var theName = document.getElementById('username').value;
+        var theName = $('#username').val();
         var username = escape(theName);
         //escape cleans the entered text, like spaces and question marks.
         var url = ('/checkName?username=' + username);
@@ -40,77 +40,122 @@ function showUsernameStatus () {
     if (request.readyState == 4) {
         if (request.status == 200) {
             console.log(username.value);
-            if (request.responseText == 'okay') {
-            document.getElementById('username').className = 'approved';
-            console.log(request.responseText);
-            $('#usernameEx').text(' Verified');
-            $('#usernameEx').removeClass('rejected');
-            $('#usernameEx').addClass('verified');
-            // if its okay, no error message ot show
+            var usernamebox = $('#username');
+            var usernameEx = $('#usernameEx');
+            var user = usernamebox.val();
+            var regtooltip = $('#registerTooltip');
+
+            if (user.length < 4) {
+                usernameEx.text('Rejected');
+                usernameEx.removeClass('verified');
+                usernameEx.removeClass('reviewing');
+                usernameEx.addClass('rejected');
+                regtooltip.html('<h6>Username must be at least 4 characters.</h6>');
+
             } else {
-            $('#usernameEx').text(' Rejected');
-            $('#usernameEx').removeClass('verified');
-            $('#usernameEx').addClass('rejected');
-            document.getElementById('username').className = 'denied';
-            console.log(request.responseText);
+                if (request.responseText == 'okay') {
+
+                    console.log(request.responseText);
+                    usernameEx.text(' Verified');
+                    usernameEx.removeClass('rejected');
+                    usernameEx.removeClass('reviewing');
+                    usernameEx.addClass('verified');
+                    regtooltip.html('<h6>Username is accepted.</h6>');
+
+                    // if its okay, no error message ot show
+                } else {
+                    usernameEx.text(' Rejected');
+                    usernameEx.removeClass('verified');
+                    usernameEx.addClass('rejected');
+                    usernameEx.addClass('denied');
+                    regtooltip.html('<h6>Sorry, this username is already in use.</h6>');
+
+                    console.log(request.responseText);
+
+                }
             }
         }
 
     }
-    checkRegister();
 }
 
 function passwordStatus() {
-    console.log("Running passwordStatus");
-    if ( $('#password').value = null ) {
-        $('#passwordEx').text(' Rejected');
-        $('#passwordEx').removeClass('verified');
-        $('#passwordEx').addClass('rejected');
-        $('#registerTooltip').html('<h6>Password requires at least 6 characters.</h6>');
+    var passwordBox = $('#password');
+    var password = passwordBox.val();
+    var passwordlen = password.length;
+    var passwordEx = $('#passwordEx');
+    var regtooltip = $('#registerTooltip');
+    console.log("Running passwordStatus, value: " + password + ", length: " + passwordlen);
+    if ( passwordlen < 6 ) {
+        passwordEx.text(' Rejected');
+        passwordEx.removeClass('verified');
+        passwordEx.addClass('rejected');
+        regtooltip.html('<h6>Password requires at least 6 characters.</h6>');
     } else {
-        $('#passwordEx').text(' Verified');
-        $('#passwordEx').removeClass('rejected');
-        $('#passwordEx').addClass('verified');
+        passwordEx.text(' Verified');
+        passwordEx.removeClass('rejected');
+        passwordEx.addClass('verified');
+        regtooltip.html('<h6>Password is accepted.</h6>');
 
     }
-    checkRegister();
-
 }
 
 function emailStatus() {
+    var emailBox = $('#email');
+    var email = emailBox.val();
+    var emailEx = $('#emailEx');
+    var regtooltip = $('#registerTooltip');
     console.log("Running emailStatus");
     if ( $('#email').value = null) {
-        $('#emailEx').text(' Rejected');
-        $('#emailEx').removeClass('verified');
-        $('#emailEx').addClass('rejected');
-        $('#registerTooltip').html('<h6>Valid email is required.</h6>');
+        emailEx.text(' Rejected');
+        emailEx.removeClass('verified');
+        emailEx.addClass('rejected');
+        regtooltip.html('<h6>Valid email is required.</h6>');
     } else {
-        $('#emailEx').text(' Verified');
-        $('#emailEx').removeClass('rejected');
-        $('#emailEx').addClass('verified');
+        emailEx.text(' Verified');
+        emailEx.removeClass('rejected');
+        emailEx.addClass('verified');
+        regtooltip.html('<h6>Email is accepted.</h6>');
     }
-    checkRegister();
 }
 
 function checkRegister() {
-    console.log("Checking register button");
-    if ( $('#usernameEx').hasClass('verified') == true ) {
-        if ( $('#passwordEx').hasClass('verified') == true ) {
-            if ( $('emailEx').hasClass('verified') == true ) {
-                $('#register').prop("disabled", false);
-                console.log("register is enabled.")
+    var regtooltip = $('#registerTooltip');
+    var usernameEx = $('#usernameEx');
+    var passwordEx = $('#passwordEx');
+    var emailEx = $('#emailEx');
+    regtooltip.html('<h6>Checking registration fields...</h6>');
+    if ( usernameEx.hasClass('verified') == true  ) {
+
+            if ( passwordEx.hasClass('verified') == true ) {
+                    if (emailEx.hasClass('verified') == true ) {
+
+
+                    } else {
+                    regtooltip.html('<h6>Email entered is invalid.</h6>');
+                    }
+
             } else {
-                $('#register').prop("disabled", true);
-                console.log("register is disabled.")
+            regtooltip.html('<h6>Password entered is invalid.</h6>');
             }
 
-        } else {
-            $('#register').prop("disabled", true);
-            console.log("register is disabled.")
-        }
     } else {
-        $('#register').prop("disabled", true);
-        console.log("register is disabled.")
+    regtooltip.html('<h6>Username entered is invalid.</h6>');
     }
 
+}
+
+function registerAccount() {
+    // do
+    var user_name = $('#username').value;
+    var password = $('#password').value;
+    var name = $('#firstName').value + ' ' + $('#lastName').value;
+    var email = $('#email').value;
+
+    $.post("/registerAccount",
+        { username: user_name , name: name, password: password, email: email},
+        function(data, status){
+            alert("Data: " + data + "\nStatus: " + status);
+        }
+    );
 }

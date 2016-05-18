@@ -3,6 +3,9 @@
 -- Host: localhost    Database: szfp
 -- ------------------------------------------------------
 -- Server version	5.7.10
+DROP DATABASE IF EXISTS `szfp`;
+CREATE DATABASE `szfp`;
+use `szfp`;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,6 +21,7 @@
 --
 -- Table structure for table `orders`
 --
+
 
 DROP TABLE IF EXISTS `orders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -46,12 +50,12 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT UNIQUE,
   `name` varchar(255) NOT NULL,
-  `join_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `username` varchar(255) DEFAULT NOT NULL,
+  `join_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `username` varchar(255) NOT NULL,
   `fb_social_id` varchar(255) NULL,
-  `email` varchar(255) DEFAULT NOT NULL,
-  `password` varchar(255) DEFAULT NOT NULL,
-  PRIMARY KEY (`user_id`),
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`user_id`)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -70,3 +74,4 @@ CREATE TABLE `users` (
 ALTER TABLE orders
 ADD FOREIGN KEY (user_id)
 REFERENCES users (user_id);
+
