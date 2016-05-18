@@ -7,7 +7,7 @@ function initPage1() {
         $('#username').on('blur', checkUsername);
         $('#password').on('blur', passwordStatus);
         $('#email').on('blur', emailStatus);
-        $('#register').disabled = true;
+        $('#register').prop("disabled", true);
     }
 }
 
@@ -42,7 +42,6 @@ function showUsernameStatus () {
             console.log(username.value);
             if (request.responseText == 'okay') {
             document.getElementById('username').className = 'approved';
-            document.getElementById('register').disabled = false;
             console.log(request.responseText);
             $('#usernameEx').text(' Verified');
             $('#usernameEx').removeClass('rejected');
@@ -67,11 +66,12 @@ function passwordStatus() {
         $('#passwordEx').text(' Rejected');
         $('#passwordEx').removeClass('verified');
         $('#passwordEx').addClass('rejected');
-
+        $('#registerTooltip').html('<h6>Password requires at least 6 characters.</h6>');
     } else {
         $('#passwordEx').text(' Verified');
         $('#passwordEx').removeClass('rejected');
         $('#passwordEx').addClass('verified');
+
     }
     checkRegister();
 
@@ -83,6 +83,7 @@ function emailStatus() {
         $('#emailEx').text(' Rejected');
         $('#emailEx').removeClass('verified');
         $('#emailEx').addClass('rejected');
+        $('#registerTooltip').html('<h6>Valid email is required.</h6>');
     } else {
         $('#emailEx').text(' Verified');
         $('#emailEx').removeClass('rejected');
@@ -96,16 +97,20 @@ function checkRegister() {
     if ( $('#usernameEx').hasClass('verified') == true ) {
         if ( $('#passwordEx').hasClass('verified') == true ) {
             if ( $('emailEx').hasClass('verified') == true ) {
-                $('#register').disabled = false;
+                $('#register').prop("disabled", false);
+                console.log("register is enabled.")
             } else {
-                $('#register').disabled = true;
+                $('#register').prop("disabled", true);
+                console.log("register is disabled.")
             }
 
         } else {
-            $('#register').disabled = true;
+            $('#register').prop("disabled", true);
+            console.log("register is disabled.")
         }
     } else {
-        $('#register').disabled = true;
+        $('#register').prop("disabled", true);
+        console.log("register is disabled.")
     }
 
 }
