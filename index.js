@@ -57,6 +57,21 @@ app.get('/checkName', function(req,res) {
     });
 });
 
+app.get('/checkEmail', function(req,res) {
+    var email = req.query.email;
+    connection.query('SELECT * FROM  users' +
+          ' WHERE email = "' + email + '"',
+    function (err, result, fields) {
+        console.log("result: "+result.length);
+
+        if (result.length > 0){
+            res.status(200).send("denied");
+        }else{
+            res.status(200).send("okay");
+        }
+    });
+});
+
 app.post('/registerAccount', function(req,res) {
     var username = req.body.username;
     var password = req.body.password;

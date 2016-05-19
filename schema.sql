@@ -31,9 +31,12 @@ CREATE TABLE `orders` (
   `user_id` int(11) NOT NULL,
   `amount` float(7,2) DEFAULT NULL,
   `order_date` date NOT NULL,
-  `address` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `discount_code` varchar(255) NULL,
+  `addressline1` varchar(255) NOT NULL,
+  `addressline2` varchar(255) NULL,
   `city` varchar(255) NOT NULL,
-  `state` varchar(255) NOT NULL,
+  `state` varchar(2) NOT NULL,
   `po_box` varchar(255) NOT NULL,
   `cc_token` varchar(255) NOT NULL,
   PRIMARY KEY (`order_id`)
@@ -49,7 +52,8 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT UNIQUE,
-  `name` varchar(255) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
   `join_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `username` varchar(255) NOT NULL,
   `fb_social_id` varchar(255) NULL,

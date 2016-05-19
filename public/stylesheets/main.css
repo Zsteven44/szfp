@@ -98,3 +98,9 @@ padding-left:20px;
 color: #cc8800;
 padding-left:20px;
 }
+#loginTooltip {
+padding-left:15px;
+}
+#registerTooltip {
+padding-left:15px;
+}
