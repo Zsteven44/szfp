@@ -42,6 +42,10 @@ app.get('/hoodies', function(req,res){
     res.render('hoodies');
 });
 
+app.get('/registering', function(req,res){
+    res.render('registering');
+});
+
 app.get('/checkName', function(req,res) {
     var username = req.query.username;
     connection.query('SELECT * FROM  users' +

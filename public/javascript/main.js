@@ -7,10 +7,8 @@ var displayModalTitle;
 var displayModalMessage;
 
 $(document).ready(function () {
-  console.log("document ready detected");
   facebook_login_button = $("#loginButton2");
   facebook_logout_button = $("#logoutButton");
-  console.log(facebook_login_button);
 
 //  facebook_login_button_li = $("#bft_fb_loginbutton_li");
 //  bft_settingsbutton_li = $("#bft_settingsbutton_li");

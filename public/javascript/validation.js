@@ -3,8 +3,6 @@ console.log('This is the window location: ' + window.location.href);
 
 function initPage1() {
     if ( window.location.href == 'http://localhost:3000/login' ) {
-        console.log("running initpage1");
-        // $('#username').change(checkUsername);
         $('#username').on({
             change: checkUsername,
             focus: function () {
@@ -49,7 +47,7 @@ function autoRegisterTooltip(object) {
             break;
         case 'password':
 
-            regtooltip.html('<h6>Password must be at least 4 characters.</h6>')
+            regtooltip.html('<h6>Password must be at least 6 characters.</h6>')
             break;
         case 'firstname':
             regtooltip.html('<h6>First name must be at least 2 characters.</h6>')
@@ -217,10 +215,10 @@ function checkEmail() {
         if (request == null) {
             alert('Unable to create request');
         } else {
-            var theName = email;
-            var username = escape(theName);
+            var theEmail= email;
+            var Email = escape(theEmail);
             //escape cleans the entered text, like spaces and question marks.
-            var url = ('/checkEmail?email=' + email);
+            var url = ('/checkEmail?email=' + Email);
             console.log(url);
             request.onreadystatechange = emailStatus;
             request.open("GET", url, true);
@@ -318,7 +316,7 @@ function registerAccount() {
         { username: user_name , fname: fname, lname: lname, password: password, email: email},
         function(data, status){
             alert("Data: " + data + "\nStatus: " + status);
-
+            window.location = '/registering';
         }
     );
 }

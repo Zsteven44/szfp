@@ -29,8 +29,8 @@ DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `amount` float(7,2) DEFAULT NULL,
-  `order_date` date NOT NULL,
+  `amount` float(9,2) DEFAULT NULL,
+  `order_date` DATETIME NOT NULL CURRENT_TIMESTAMP,
   `status` varchar(255) NOT NULL,
   `discount_code` varchar(255) NULL,
   `addressline1` varchar(255) NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE `users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT UNIQUE,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
-  `join_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `join_date` DATETIME NOT NULL CURRENT_TIMESTAMP,
   `username` varchar(255) NOT NULL,
   `fb_social_id` varchar(255) NULL,
   `email` varchar(255) NOT NULL,
@@ -63,6 +63,76 @@ CREATE TABLE `users` (
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table structure for table `order_items`
+--
+
+DROP TABLE IF EXISTS `order_items`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `order_items` (
+  `item_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table structure for table `item_details`
+--
+
+DROP TABLE IF EXISTS `item_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `item_details` (
+  `item_id` int(11) NOT NULL AUTO_INCREMENT UNIQUE,
+  `description` varchar(255) NOT NULL,
+  `price` float(9,2) NOT NULL,
+  `item_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`item_id`)
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `cart`
+--
+
+DROP TABLE IF EXISTS `cart`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cart` (
+  `cart_id` int(11) NOT NULL AUTO_INCREMENT UNIQUE,
+  `user_id` int(255) NOT NULL,
+  PRIMARY KEY (`cart_id`)
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `cart_items`
+--
+
+DROP TABLE IF EXISTS `cart_items`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cart_items` (
+  `cart_id` int(11) NOT NULL,
+  `item_id` int(255) NOT NULL
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+-- Other things
+
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -79,3 +149,18 @@ ALTER TABLE orders
 ADD FOREIGN KEY (user_id)
 REFERENCES users (user_id);
 
+ALTER TABLE order_items
+ADD FOREIGN KEY (order_id)
+REFERENCES orders (order_id);
+
+ALTER TABLE order_items
+ADD FOREIGN KEY (item_id)
+REFERENCES item_details (item_id);
+
+ALTER TABLE cart_items
+ADD FOREIGN KEY (item_id)
+REFERENCES item_details (item_id);
+
+ALTER TABLE cart
+ADD FOREIGN KEY (cart_id)
+REFERENCES users (user_id);

@@ -21,7 +21,7 @@
 }
 
 p {
-    color: green;
+
 }
 .jumbotronTitle {
     color: green;
@@ -66,10 +66,16 @@ border:solid;
 border-width:10px;
 }
 
-/* All registration related items */
+/* login.handlebars */
 .logPage {
 list-style:none;
 margin: 0px;
+}
+
+.logPage-text {
+color:green;
+padding:5px;
+margin:2px;
 }
 .registrationBox {
     background: white;
@@ -104,3 +110,25 @@ padding-left:15px;
 #registerTooltip {
 padding-left:15px;
 }
+
+@media(max-width: 1200px) {
+    .logPage-ul {
+        margin-left: 0px;
+        padding-left:0px;
+    }
+}
+
+/* registering.handlebars */
+
+
+
+.registering-wrapper {
+margin-top:30px;
+}
+.registering-main {
+padding:55px;
+border-style:solid;
+border-width:10px;
+}
+
+
