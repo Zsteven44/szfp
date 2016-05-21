@@ -1,12 +1,17 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
-// var logger = require('morgan');
+// figure out what module '.pass' so we can eventually
+// hash passwords.
+//
+// var hash = require('./pass').hash;
+//
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var SessionStore = require('express-mysql-session');
 var connection = require('./seeds/db').connection;
+var Promise = require("bluebird");
 var app = express();
 
 // handlebars setup
@@ -80,8 +85,8 @@ app.post('/registerAccount', function(req,res) {
     var username = req.body.username;
     var password = req.body.password;
     var email = req.body.email;
-    //var firstname
-    //var lastname
+    var firstname = req.body.fname;
+    var lastname = req.body.lname;
     console.log(username);
     res.status(200).send();
 
