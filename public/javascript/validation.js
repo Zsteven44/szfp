@@ -38,7 +38,6 @@ function initPage1() {
 }
 
 function autoRegisterTooltip(object) {
-    console.log(object);
     var regtooltip = $('#registerTooltip');
     switch (object) {
         case 'username':
@@ -86,12 +85,10 @@ function checkUsername() {
 }
 
 function showUsernameStatus () {
-    console.log('showUsernameStatus running, state: ' + request.readyState + ' and ready status: ' + request.status);
     //Update the page to show whether the username is okay.
 
     if (request.readyState == 4) {
         if (request.status == 200) {
-            console.log(username.value);
             var usernamebox = $('#username');
             var usernameEx = $('#usernameEx');
             var user = usernamebox.val();
@@ -107,7 +104,6 @@ function showUsernameStatus () {
             } else {
                 if (request.responseText == 'okay') {
 
-                    console.log(request.responseText);
                     usernameEx.text(' Verified');
                     usernameEx.removeClass('rejected');
                     usernameEx.removeClass('reviewing');
@@ -118,11 +114,9 @@ function showUsernameStatus () {
                 } else {
                     usernameEx.text(' Rejected');
                     usernameEx.removeClass('verified');
+                    usernameEx.removeClass('reviewing');
                     usernameEx.addClass('rejected');
-                    usernameEx.addClass('denied');
                     regtooltip.html('<h6>Sorry, this username is already in use.</h6>');
-
-                    console.log(request.responseText);
 
                 }
             }
@@ -146,6 +140,7 @@ function passwordStatus() {
     } else {
         passwordEx.text(' Verified');
         passwordEx.removeClass('rejected');
+        passwordEx.removeClass('reviewing');
         passwordEx.addClass('verified');
         regtooltip.html('<h6>Password is accepted.</h6>');
 
@@ -230,7 +225,6 @@ function checkEmail() {
 function emailStatus() {
     if (request.readyState == 4) {
             if (request.status == 200) {
-                console.log(username.value);
                 var emailBox = $('#email');
                 var email = emailBox.val();
                 var emailEx = $('#emailEx');
@@ -245,8 +239,6 @@ function emailStatus() {
 
                 } else {
                     if (request.responseText == 'okay') {
-
-                        console.log(request.responseText);
                         emailEx.text(' Verified');
                         emailEx.removeClass('rejected');
                         emailEx.removeClass('reviewing');
@@ -255,10 +247,10 @@ function emailStatus() {
 
                         // if its okay, no error message ot show
                     } else {
-                        usernameEx.text(' Rejected');
-                        usernameEx.removeClass('verified');
-                        usernameEx.addClass('rejected');
-                        usernameEx.addClass('denied');
+                        emailEx.text(' Rejected');
+                        emailEx.removeClass('verified');
+                        emailEx.removeClass('reviewing');
+                        emailEx.addClass('rejected');
                         regtooltip.html('<h6>Sorry, this email is already in use.</h6>');
 
                     }
@@ -275,6 +267,11 @@ function checkRegister() {
     var emailEx = $('#emailEx');
     var fnameEx = $('#firstnameEx');
     var lnameEx = $('#lastnameEx');
+    var user_name = $('#username').val();
+    var password = $('#password').val();
+    var fname = $('#firstname').val();
+    var lname = $('#lastname').val();
+    var email = $('#email').val();
 
     regtooltip.html('<h6>Checking registration fields...</h6>');
     if ( usernameEx.hasClass('verified') == true  ) {
@@ -283,7 +280,7 @@ function checkRegister() {
                     if (fnameEx.hasClass('verified') == true) {
                         if (lnameEx.hasClass('verified') == true) {
                             if (emailEx.hasClass('verified') == true ) {
-                                registerAccount();
+                                registerAccount(user_name, password, fname, lname, email);
                             } else {
                                 regtooltip.html('<h6>Email entered is invalid.</h6>');
                             }
@@ -304,21 +301,20 @@ function checkRegister() {
 
 }
 
-function registerAccount() {
-    // do
-    var user_name = $('#username').value;
-    var password = $('#password').value;
-    var fname = $('#firstname').value
-    var lname = $('#lastname').value;
-    var email = $('#email').value;
+function registerAccount(user_name, password, fname, lname, email) {
 
     $.post("/registerAccount",
         { username: user_name , fname: fname, lname: lname, password: password, email: email},
         function(data, status){
             alert("Data: " + data + "\nStatus: " + status);
-            window.location = '/registering';
+            // window.location = '/registering';
         }
+
     );
+    console.log("username: " + user_name + ".  Email: " + email +
+                    ". Full name: " + fname + " " + lname);
+
+
 }
 
 

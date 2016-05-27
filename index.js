@@ -21,6 +21,12 @@ app.set('view engine', 'handlebars');
 
 app.set('port', process.env.PORT || 3000);
 
+
+app.use(cookieParser());
+app.use(session({secret: 'anystringatall',
+                 saveUninitialized: true,
+                 resave: true}));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -29,6 +35,8 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req,res){
     res.render('home');
+    console.log(req.cookies);
+    console.log(req.session);
 });
 
 app.get('/about', function(req,res){
@@ -71,7 +79,7 @@ app.get('/checkEmail', function(req,res) {
     connection.query('SELECT * FROM  users' +
           ' WHERE email = "' + email + '"',
     function (err, result, fields) {
-        console.log("result: "+result.length);
+        console.log("is this email taken, result: "+result.length);
 
         if (result.length > 0){
             res.status(200).send("denied");
@@ -87,7 +95,21 @@ app.post('/registerAccount', function(req,res) {
     var email = req.body.email;
     var firstname = req.body.fname;
     var lastname = req.body.lname;
-    console.log(username);
+    var TABLE = "users";
+    console.log("username: " + username + ".  Email: " + email +
+        ". Full name: " + firstname + " " + lastname);
+
+
+    connection.query("INSERT INTO users (firstname, lastname, join_date, username, email, password) VALUES ('" + firstname + "','" + lastname + "', NOW(), '" + username + "', '" + email + "', '" + password + "')",function(err, result)
+    {
+      if (err)
+         throw err;
+    });
+//      connection.query("INSERT INTO users VALUES ( NULL ,'" + firstname + "','" + lastname + "', NOW(), '" + username + "', '" + email + "', '" + password + "')",function(err, result)
+//      {
+//            if (err)
+//               throw err;
+//      });
     res.status(200).send();
 
 })
@@ -106,7 +128,7 @@ app.use(function(err, req, res, next){
     res.render('500');
 });
 
-app.listen(app.get('port'), function(){
+var server = app.listen(app.get('port'), function(){
     console.log('Express started on http://localhost:' + app.get('port') + '; press cntrl+C to terminate.');
 });
 

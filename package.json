@@ -7,10 +7,12 @@
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "express-favicon": "^1.0.1",
+    "express-session":"latest",
     "express-mysql-session": "^1.0.0",
     "express3-handlebars": "^0.5.2",
     "serve-favicon": "^2.3.0",
-    "siege": "^0.2.0"
+    "siege": "^0.2.0",
+    "cookie-parser":"latest"
   },
   "devDependencies": {},
   "scripts": {
