@@ -12,7 +12,8 @@
     "express3-handlebars": "^0.5.2",
     "serve-favicon": "^2.3.0",
     "siege": "^0.2.0",
-    "cookie-parser":"latest"
+    "cookie-parser":"latest",
+    "nodemailer": "~0.7.1"
   },
   "devDependencies": {},
   "scripts": {

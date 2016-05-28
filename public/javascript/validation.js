@@ -1,6 +1,8 @@
 window.onload = initPage1;
 console.log('This is the window location: ' + window.location.href);
 
+// REGISTRATION SIDE
+
 function initPage1() {
     if ( window.location.href == 'http://localhost:3000/login' ) {
         $('#username').on({
@@ -34,6 +36,7 @@ function initPage1() {
                                }
                            });;
         $('#register').click(checkRegister);
+        $('#siteLogin').click(siteLogin);
     }
 }
 
@@ -317,8 +320,31 @@ function registerAccount(user_name, password, fname, lname, email) {
 
 }
 
+// LOGIN SIDE
 
+function siteLogin() {
+    request = createRequest();
+    if (request == null) {
+        alert('Unable to create request');
+    } else {
+        var username = $('#usernameLogin').val();
+        var password = $('#passwordLogin').val();
+        var tooltip = $('loginTooltip');
+        var theusername = escape(username);
+        //escape cleans the entered text, like spaces and question marks.
+        var url = ('/sitelogin?username=' + theusername);
+        console.log(url);
+        request.onreadystatechange = checkLogin;
+        request.open("GET", url, true);
+        request.send(null);
+    }
+};
 
-function siteLogin(){
+function checkLogin() {
+    
+
+}
+
+function loginStatus() {
 
 }

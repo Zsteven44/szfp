@@ -6,6 +6,8 @@ var favicon = require('serve-favicon');
 //
 // var hash = require('./pass').hash;
 //
+
+var nodemailer = require("nodemailer");
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
@@ -25,7 +27,8 @@ app.set('port', process.env.PORT || 3000);
 app.use(cookieParser());
 app.use(session({secret: 'anystringatall',
                  saveUninitialized: true,
-                 resave: true}));
+                 resave: true,
+                 cookie: { maxAge: 90000}}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -89,6 +92,22 @@ app.get('/checkEmail', function(req,res) {
     });
 });
 
+app.get('/sitelogin', function(req, res) {
+    var username = $('#usernameLogin').val();
+    var password = $('#passwordLogin').val();
+    var tooltip = $('loginTooltip');
+    connection.query('SELECT * FROM users WHERE username = "' + username + '"',
+    function (err, result, fields) {
+        console.log('Is this username valid, results: ' + results.length);
+        if (result.length > 0 ) {
+            res.status(200).send("denied");
+        } else {
+            res.status(200).send("okay");
+        }
+    });
+});
+
+
 app.post('/registerAccount', function(req,res) {
     var username = req.body.username;
     var password = req.body.password;
@@ -105,11 +124,6 @@ app.post('/registerAccount', function(req,res) {
       if (err)
          throw err;
     });
-//      connection.query("INSERT INTO users VALUES ( NULL ,'" + firstname + "','" + lastname + "', NOW(), '" + username + "', '" + email + "', '" + password + "')",function(err, result)
-//      {
-//            if (err)
-//               throw err;
-//      });
     res.status(200).send();
 
 })
