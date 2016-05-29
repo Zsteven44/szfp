@@ -93,18 +93,37 @@ app.get('/checkEmail', function(req,res) {
 });
 
 app.get('/sitelogin', function(req, res) {
-    var username = $('#usernameLogin').val();
-    var password = $('#passwordLogin').val();
-    var tooltip = $('loginTooltip');
-    connection.query('SELECT * FROM users WHERE username = "' + username + '"',
-    function (err, result, fields) {
+    var username = req.query.username;
+    var password = req.query.password;
+    var username_results;
+    var password_results;
+
+    console.log('querying the username and password entered');
+
+    var usernameMatch = connection.query('SELECT * FROM users WHERE username ="' + username + '"', function (err, results, fields) {
         console.log('Is this username valid, results: ' + results.length);
-        if (result.length > 0 ) {
-            res.status(200).send("denied");
-        } else {
-            res.status(200).send("okay");
+        username_results = results.length;
+        if (err == false || err == null) {
+            console.log(err);
+        } else if (username_results === 0 ) { {
+            console.log('username does not exist, username );
+            res.status(200).send("username_denied");
+        } else if (username_results > 0) {
+            console.log('username does exist, this is the info available: ' + );
+
+
+
+            if (results == 0 ) {
+                res.status(200).send("password_denied");
+            } else
+                res.status(200).send("okay");
+            }
         }
     });
+
+    console.log(results1);
+
+
 });
 
 

@@ -37,6 +37,7 @@ function initPage1() {
                            });;
         $('#register').click(checkRegister);
         $('#siteLogin').click(siteLogin);
+
     }
 }
 
@@ -323,6 +324,7 @@ function registerAccount(user_name, password, fname, lname, email) {
 // LOGIN SIDE
 
 function siteLogin() {
+    console.log('Login button has been pressed');
     request = createRequest();
     if (request == null) {
         alert('Unable to create request');
@@ -332,7 +334,7 @@ function siteLogin() {
         var tooltip = $('loginTooltip');
         var theusername = escape(username);
         //escape cleans the entered text, like spaces and question marks.
-        var url = ('/sitelogin?username=' + theusername);
+        var url = ('/sitelogin?username=' + theusername + '&password=' + password);
         console.log(url);
         request.onreadystatechange = checkLogin;
         request.open("GET", url, true);
@@ -341,7 +343,18 @@ function siteLogin() {
 };
 
 function checkLogin() {
-    
+    if ((request.readyState == 4) && (request.status == 200)) {
+        if (request.responseText == 'username_denied') {
+            var logtooltip = $('loginTooltip');
+            logtooltip.html('The username entered does not exist.');
+        } else if (request.responseText == 'okay') {
+            window.location = 'localhost:3000/';
+        } else {
+            var logtooltip = $('loginTooltip');
+            logtooltip.html('The username/email you have entered does not exist.');
+
+        }
+    }
 
 }
 
