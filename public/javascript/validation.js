@@ -358,6 +358,10 @@ function checkLogin() {
 
 }
 
-function loginStatus() {
-
+function loginStatus (err, results, fields, username, password) {
+        var match = JSON.stringify(results);
+        console.log('usernames matching: ' + results.length + ' and the full result: ' + results);
+        console.log('username does exist, this is the info available: ' + username +' and the results: ' + match + '. and the errors: ' + err );
+        console.log('this is the result password match: ' );
+        return true;
 }

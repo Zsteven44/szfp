@@ -97,33 +97,29 @@ app.get('/sitelogin', function(req, res) {
     var password = req.query.password;
     var username_results;
     var password_results;
-
-    console.log('querying the username and password entered');
-
-    var usernameMatch = connection.query('SELECT * FROM users WHERE username ="' + username + '"', function (err, results, fields) {
-        console.log('Is this username valid, results: ' + results.length);
-        username_results = results.length;
-        if (err == false || err == null) {
-            console.log(err);
-        } else if (username_results === 0 ) { {
-            console.log('username does not exist, username );
-            res.status(200).send("username_denied");
-        } else if (username_results > 0) {
-            console.log('username does exist, this is the info available: ' + );
-
-
-
-            if (results == 0 ) {
-                res.status(200).send("password_denied");
-            } else
-                res.status(200).send("okay");
-            }
-        }
+    var error;
+    var RESULT;
+    var matches = connection.query('SELECT * FROM users WHERE username ="' + username + '"', function (err, results, fields) {
+    //loginStatus(err, results, fields, username, password);
+    console.log(matches);
     });
 
-    console.log(results1);
+    /*if (error != null) {
+                alert(error)
+            } else if (username_results === 0 ) {
+                console.log('username ' + username + ' does not exist');
+                res.status(200).send("username_denied");
+            } else if (username_results > 0) {
 
 
+
+                if (results == 0 ) {
+                    res.status(200).send("password_denied");
+                } else {
+                    res.status(200).send("okay");
+                }
+            }
+*/
 });
 
 
