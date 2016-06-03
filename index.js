@@ -33,7 +33,7 @@ app.use(session({secret: 'anystringatall',
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use(favicon(__dirname + '/public/img/favicon.ico'))
+app.use(favicon(__dirname + '/public/img/ggicon.jpg'))
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req,res){
@@ -57,7 +57,9 @@ app.get('/tshirts', function(req,res){
 app.get('/hoodies', function(req,res){
     res.render('hoodies');
 });
-
+app.get('/cart', function(req,res){
+    res.render('cart');
+});
 app.get('/registering', function(req,res){
     res.render('registering');
 });
