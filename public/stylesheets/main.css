@@ -16,39 +16,12 @@ background:black;
     margin:0px;
 }
 
-.title {
-
-    color: green;
-
-}
-
 #logo {
     display:block;
     margin-left: auto;
     margin-right: auto;
 }
 
-p {
-
-}
-.jumbotronTitle {
-    color: green;
-    text-decoration:none;
-}
-
-.jumbotronTitle:hover {
-    color: green;
-    text-decoration:none;
-}
-
-.jumbotronTitle:visited {
-    color: green;
-    text-decoration:none;
-}
-
-#wrapper {
-margin-top:100px;
-}
 
 #thumbnailPane {
 margin-top:50px;
@@ -94,8 +67,16 @@ color:white;
 }
 
 .main-footer ul {
-list-style-type:none;
-list-style-position:inside;
+    list-style-type:none;
+    list-style-position:inside;
+    padding:0;
+    margin:0;
+}
+.main-footer li {
+    cursor:pointer;
+    cursor:hand;
+    padding:0;
+    margin:0;
 }
 
 /*
@@ -153,11 +134,58 @@ color: #FFFFFF;
 }
 
 #nav-menu-button:focus,
-#nav-menu-button:hover {
+#nav-menu-button:hover,
+#nav-menu-button:active {
     background-color:#FFFFFF;
     color:#737373;
+    text-decoration:none;
 
 }
+
+/* product navbar */
+.product-navbar-container {
+    background-color: black;
+    padding:40px;
+    text-align:center;
+}
+.product-navbar-ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+.product-navbar-ul li a,
+.product-navbar-ul li a:hover,
+.product-navbar-ul li a:visited,
+.product-navbar-ul li a:active {
+    text-decoration: none;
+    padding-left:10px;
+    padding-right:10px;
+    color: white;
+}
+.product-navbar-ul li a:focus,
+.product-navbar-ul li a:hover {
+    color: orange;
+}
+
+.product-navbar-li {
+    color:black;
+    display:inline;
+    font-family: "Verdana", sans-serif;
+    cursor:pointer;
+    cursor:hand;
+}
+
+
+/*
+home.handlebars
+*/
+
+.home-content {
+margin-top:100px;
+}
+
+
+
 
 /*
 login.handlebars
@@ -166,20 +194,22 @@ login.handlebars
 list-style:none;
 margin: 0px;
 }
-
-.logPage-text {
-color:green;
+.login-header-text {
+    color:orange;
+}
+.login-body-text {
+color:black;
 padding:5px;
 margin:2px;
 }
-.registrationBox {
+.registration-box {
     background: white;
     border-width:5px;
     border-style: solid;
     margin-top:20px;
     padding: 40px 40px 40px 40px;
 }
-.loginBox {
+.login-box {
     background: white;
     border-width:5px;
     border-style: solid;
@@ -230,12 +260,27 @@ border-width:10px;
 cart.handlebars
 */
 .cart-container {
-    margin:20px;
+    margin-top:20px;
+    margin-bottom:20px;
 }
 .cart-header {
     margin:50px;
+    text-align:center;
 }
+.cart-column-header {
 
+}
+.cart-body {
+    margin-top:20px;
+    text-align:center;
+}
+.cart-footer {
+    margin-top:40px;
+    text-align:center;
+}
+.cart-footer-instructions {
+
+}
 /*
 modal
 */
