@@ -13,11 +13,13 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var SessionStore = require('express-mysql-session');
 var connection = require('./seeds/db').connection;
+var options = require('./seeds/db').options;
 var Promise = require("bluebird");
 var app = express();
+var genuuid = require('./utils/genuuid');
 
 
-var sessionStore = new SessionStore(db.options);
+var sessionStore = new SessionStore(options);
 
 
 
@@ -52,7 +54,7 @@ var sess;
 app.get('/', function(req,res){
     sess = req.session;
     if (sess.userame) {
-        loggedIn;
+
 
     }
     res.render('home');
