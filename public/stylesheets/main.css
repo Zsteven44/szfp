@@ -46,6 +46,10 @@ border-width: 0px 5px 0 5px;
 border:solid;
 border-width:10px;
 }
+.main-header{
+    padding-top:70px;
+    background-color: black;
+}
 
 /*
 main.handlebars footer styles
@@ -98,39 +102,46 @@ Nav bar styles
     background-color:transparent;
 }
 #nav-about-button {
-color: #FFFFFF;
+    color: #FFFFFF;
+    transition: all 0.5s ease 0s;
 }
 
 #nav-about-button:focus,
 #nav-about-button:hover {
     background-color:#FFFFFF;
     color:#737373;
+    transition: all 0.5s ease 0s;
 
 }
 
 #nav-cart-button {
-color: #FFFFFF;
+    color: #FFFFFF;
+    transition: all 0.5s ease 0s;
 }
 
 #nav-cart-button:focus,
 #nav-cart-button:hover {
     background-color:#FFFFFF;
     color:#737373;
+    transition: all 0.5s ease 0s;
 
 }
 
 #nav-login-button {
-color: #FFFFFF;
+    color: #FFFFFF;
+    transition: all 0.5s ease 0s;
 }
 
 #nav-login-button:focus,
 #nav-login-button:hover {
     background-color:#FFFFFF;
     color:#737373;
+    transition: all 0.5s ease 0s;
 
 }
 #nav-menu-button {
-color: #FFFFFF;
+    color: #FFFFFF;
+    transition: all 0.5s ease 0s;
 }
 
 #nav-menu-button:focus,
@@ -139,7 +150,7 @@ color: #FFFFFF;
     background-color:#FFFFFF;
     color:#737373;
     text-decoration:none;
-
+    transition: all 0.5s ease 0s;
 }
 
 /* product navbar */
@@ -161,10 +172,13 @@ color: #FFFFFF;
     padding-left:10px;
     padding-right:10px;
     color: white;
+    transition: all 0.3s ease 0s;
 }
 .product-navbar-ul li a:focus,
 .product-navbar-ul li a:hover {
     color: orange;
+    transition: all 0.3s ease 0s;
+
 }
 
 .product-navbar-li {
@@ -264,14 +278,15 @@ cart.handlebars
     margin-bottom:20px;
 }
 .cart-header {
-    margin:50px;
+    margin-top:50px;
+    margin-bottom:30px;
     text-align:center;
 }
 .cart-column-header {
 
 }
 .cart-body {
-    margin-top:20px;
+    margin-top:10px;
     text-align:center;
 }
 .cart-footer {
@@ -281,6 +296,29 @@ cart.handlebars
 .cart-footer-instructions {
 
 }
+
+#cart-checkout-button {
+    background-color: #80ccff;
+    transition: all 0.5s ease 0s;
+}
+#cart-checkout-button:hover {
+    background-color: blue;
+    color: white;
+
+    transition: all 0.5s ease 0s;
+}
+
+#cart-update-button {
+    transition: all 0.5s ease 0s;
+}
+
+#cart-update-button:hover {
+    background-color: orange;
+    color: white;
+    transition: all 0.5s ease 0s;
+
+}
+
 /*
 modal
 */

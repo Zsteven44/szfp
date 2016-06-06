@@ -16,6 +16,11 @@ var connection = require('./seeds/db').connection;
 var Promise = require("bluebird");
 var app = express();
 
+
+var sessionStore = new SessionStore(db.options);
+
+
+
 // handlebars setup
 var handlebars = require('express3-handlebars').create({defaultLayout:'main'});
 app.engine('handlebars', handlebars.engine);
@@ -23,12 +28,18 @@ app.set('view engine', 'handlebars');
 
 app.set('port', process.env.PORT || 3000);
 
-
+// session setup
 app.use(cookieParser());
-app.use(session({secret: 'anystringatall',
-                 saveUninitialized: true,
-                 resave: true,
-                 cookie: { maxAge: 90000}}));
+app.use(session({
+    genid: function(req) {
+        return genuuid();
+    },
+    key:'session_cookie_name',
+    secret: 'anystringatall',
+    store: sessionStore,
+    saveUninitialized: true,
+    resave: true,
+    cookie: { maxAge: 90000}}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -36,10 +47,18 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(favicon(__dirname + '/public/img/ggicon.jpg'))
 app.use(express.static(__dirname + '/public'));
 
+var sess;
+
 app.get('/', function(req,res){
+    sess = req.session;
+    if (sess.userame) {
+        loggedIn;
+
+    }
     res.render('home');
-    console.log(req.cookies);
-    console.log(req.session);
+    session.email = null;
+    console.log('This is the cookies: ' + JSON.stringify(req.cookies));
+    console.log('This is the session: ' + JSON.stringify(req.session));
 });
 
 app.get('/about', function(req,res){
@@ -81,7 +100,7 @@ app.get('/checkName', function(req,res) {
 
 app.get('/checkEmail', function(req,res) {
     var email = req.query.email;
-    connection.query('SELECT * FROM  users' +
+    connection.query('SELECT email FROM  users' +
           ' WHERE email = "' + email + '"',
     function (err, result, fields) {
         console.log("is this email taken, result: "+result.length);
