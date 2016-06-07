@@ -57,7 +57,8 @@ app.get('/', function(req,res){
 
 
     }
-    res.render('home');
+    var data = {example:"this is text"};
+    res.render('home', data); // pretty sure this should be the last thing you call
     session.email = null;
     console.log('This is the cookies: ' + JSON.stringify(req.cookies));
     console.log('This is the session: ' + JSON.stringify(req.session));
