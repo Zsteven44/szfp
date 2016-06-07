@@ -139,6 +139,18 @@ Nav bar styles
     transition: all 0.5s ease 0s;
 
 }
+#nav-logged-in {
+    color: #FFFFFF;
+    transition: all 0.5s ease 0s;
+}
+
+#nav-logged-in:focus,
+#nav-logged-in:hover {
+    background-color:#FFFFFF;
+    color:#737373;
+    transition: all 0.5s ease 0s;
+
+}
 #nav-menu-button {
     color: #FFFFFF;
     transition: all 0.5s ease 0s;
@@ -344,4 +356,12 @@ outline:none;
 }
 .modal-body {
     background-color: #ffbf80;
+}
+
+
+/*
+about.handlebars
+*/
+.about-header {
+    text-align:center;
 }

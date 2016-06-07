@@ -5,18 +5,19 @@
     <meta http-equiv="X-UA=Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+    <script src="handlebars-v4.0.5.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <script src="javascript/facebook.js" type="application/javascript"></script>
     <script src="javascript/main.js" type="application/javascript"></script>
+    <script src="javascript/template-applied.js" type="application/javascript"></script>
 
     <script src="javascript/utils.js" type="application/javascript"></script>
     <script src="javascript/ajaxsetup.js" type="application/javascript"></script>
     <script src="javascript/validation.js" type="application/javascript"></script>
-
+    <script src="javascript/template-applied.js" type="application/javascript"></script>
     <link href="stylesheets/bootstrap-social.css" type="text/css" rel="stylesheet">
     <link href="stylesheets/main.css" type="text/css" rel="stylesheet">
 
@@ -59,13 +60,21 @@
 
                     </ul>
 
-                    <!-- end of experimental -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/cart" id="nav-cart-button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> <span id="cart-count">0</span> Cart <span id="cart-cost"></span></a></li>
+                        <li>
+                            <a href="/cart" id="nav-cart-button">
+                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> <span id="cart-count">0</span> Cart <span id="cart-cost"></span>
+                            </a>
+                        </li>
 
                         <li>
                             <a href="/login" id="nav-login-button">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" id="nav-logged-in">
+                                asf
                             </a>
                         </li>
 
@@ -205,6 +214,10 @@
         </div>
     </div>
     <script src="/javascript/angular.min.js"></script>
+
+
+
+
 
 </body>
 </html>
