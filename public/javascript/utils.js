@@ -31,6 +31,9 @@ function addEventHandler(obj, eventName, handler) {
 function checkDBExisting(tableName, tableRow, tableValue) {
     connection.query('SELECT * FROM ' + tableName + ' WHERE ' + tableRow + ' = "' + tableValue + '"',
     function (err, result, fields) {
+        if (err) {
+            throw err;
+        }
         console.log('result: '+ result.length);
 
         if (result.length > 0) {

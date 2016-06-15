@@ -12,12 +12,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <script src="javascript/facebook.js" type="application/javascript"></script>
     <script src="javascript/main.js" type="application/javascript"></script>
-    <script src="javascript/template-applied.js" type="application/javascript"></script>
 
     <script src="javascript/utils.js" type="application/javascript"></script>
     <script src="javascript/ajaxsetup.js" type="application/javascript"></script>
     <script src="javascript/validation.js" type="application/javascript"></script>
-    <script src="javascript/template-applied.js" type="application/javascript"></script>
     <link href="stylesheets/bootstrap-social.css" type="text/css" rel="stylesheet">
     <link href="stylesheets/main.css" type="text/css" rel="stylesheet">
 
@@ -63,20 +61,19 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a href="/cart" id="nav-cart-button">
-                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> <span id="cart-count">0</span> Cart <span id="cart-cost"></span>
+                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> {{cartcount}} Cart <span id="cart-cost"></span>
                             </a>
                         </li>
 
                         <li>
                             <a href="/login" id="nav-login-button">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login
+
+                                    <!-- <p>{{username}} is logged in.</p> -->
+
                             </a>
                         </li>
-                        <li>
-                            <a href="#" id="nav-logged-in">
-                                asf
-                            </a>
-                        </li>
+
 
                     </ul>
                 </div><!-- /.navbar-collapse -->

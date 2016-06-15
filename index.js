@@ -51,20 +51,29 @@ app.use(express.static(__dirname + '/public'));
 
 var sess;
 
-app.get('/', function(req,res){
-    sess = req.session;
-    if (sess.userame) {
+///////////////////////
+//                   //
+// THE ROUTES BELOW  //
+//                   //
+///////////////////////
+
+app.get('/', UserLoggedInCheck, HomeRender)
 
 
-    }
-    var data = {example:"this is text"};
-    res.render('home', data); // pretty sure this should be the last thing you call
-    session.email = null;
-    console.log('This is the cookies: ' + JSON.stringify(req.cookies));
-    console.log('This is the session: ' + JSON.stringify(req.session));
+    var data = userLoggedInCheck;
+
+
+    console.log('This is the JSON.stringify(req.cookies): ' + JSON.stringify(req.cookies));
+    console.log('This is the JSON.stringify(req.session): ' + JSON.stringify(req.session));
+    console.log('This is the JSON.stringify(req.session.id): ' + JSON.stringify(req.session.id));
+    console.log('This is the (req.session.id): ' + (req.session.id));
+
+    res.render('home', data);
 });
 
 app.get('/about', function(req,res){
+    if (req.session.id) {
+        }
     res.render('about');
 });
 
@@ -119,31 +128,25 @@ app.get('/checkEmail', function(req,res) {
 app.get('/sitelogin', function(req, res) {
     var username = req.query.username;
     var password = req.query.password;
-    var username_results;
-    var password_results;
-    var error;
-    var RESULT;
-    var matches = connection.query('SELECT * FROM users WHERE username ="' + username + '"', function (err, results, fields) {
-    //loginStatus(err, results, fields, username, password);
-    console.log(matches);
-    });
 
-    /*if (error != null) {
-                alert(error)
-            } else if (username_results === 0 ) {
-                console.log('username ' + username + ' does not exist');
-                res.status(200).send("username_denied");
-            } else if (username_results > 0) {
+    connection.query('SELECT * FROM users WHERE username ="' + username + '" and password = "' + password + '"', function (err, results, fields) {
+        if (err) {
+            throw error;
+        } else if (results.length == 1) {
 
-
-
-                if (results == 0 ) {
-                    res.status(200).send("password_denied");
+            connection.query('UPDATE users SET session_id = "' + req.session.id + '" WHERE username = "' + username +'"', function (err, results, fields) {
+                if (err) {
+                    throw error;
                 } else {
+                    console.log('this is the new sess.id: ' + req.session.id);
+
                     res.status(200).send("okay");
                 }
-            }
-*/
+            });
+        } else {
+            res.status(200).send('denied');
+        }
+    });
 });
 
 
@@ -155,13 +158,14 @@ app.post('/registerAccount', function(req,res) {
     var lastname = req.body.lname;
     var TABLE = "users";
     console.log("username: " + username + ".  Email: " + email +
-        ". Full name: " + firstname + " " + lastname);
+        ". Full name: " + firstname + " " + lastname + ". The session id saved: " + req.session.id);
 
 
-    connection.query("INSERT INTO users (firstname, lastname, join_date, username, email, password) VALUES ('" + firstname + "','" + lastname + "', NOW(), '" + username + "', '" + email + "', '" + password + "')",function(err, result)
+    connection.query("INSERT INTO users (firstname, lastname, join_date, username, email, password, session_id) VALUES ('" + firstname + "','" + lastname + "', NOW(), '" + username + "', '" + email + "', '" + password + "', '" + req.session.id + "')",function(err, result)
     {
-      if (err)
+      if (err) {
          throw err;
+      }
     });
     res.status(200).send();
 
@@ -185,3 +189,28 @@ var server = app.listen(app.get('port'), function(){
     console.log('Express started on http://localhost:' + app.get('port') + '; press cntrl+C to terminate.');
 });
 
+function UserLoggedInCheck (req, res) {
+    sess = req.session;
+    if (sess) {
+            connection.query('SELECT * from users WHERE session_id = "' + sess.id '"', function (err, results, fields) {
+                if (err) {
+                    throw error;
+                } else if (results == 1) {
+                    var data = {username: results.username, userid: results.user_id, fname: results.firstname, cartcount: 0}
+                    console.log('the user id is:' + data.userid +'. The username is: ' + data.username +'. The firstname is: ' + fname + '.');
+                    return data;
+                } else {
+                // this would need to save the session for an unlogged user.
+                }
+            });
+
+    } else {
+        console.log('there is no session for this user.  This case should not occur.');
+
+    }
+
+}
+
+function HomeRender(req,res) {
+
+}

@@ -59,6 +59,7 @@ CREATE TABLE `users` (
   `fb_social_id` varchar(255) NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `session_id` varchar(255) NOT NULL,
   PRIMARY KEY (`user_id`)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

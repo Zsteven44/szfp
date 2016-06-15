@@ -324,44 +324,30 @@ function registerAccount(user_name, password, fname, lname, email) {
 // LOGIN SIDE
 
 function siteLogin() {
-    console.log('Login button has been pressed');
-    request = createRequest();
-    if (request == null) {
-        alert('Unable to create request');
-    } else {
-        var username = $('#usernameLogin').val();
-        var password = $('#passwordLogin').val();
-        var tooltip = $('loginTooltip');
-        var theusername = escape(username);
-        //escape cleans the entered text, like spaces and question marks.
-        var url = ('/sitelogin?username=' + theusername + '&password=' + password);
-        console.log(url);
-        request.onreadystatechange = checkLogin;
-        request.open("GET", url, true);
-        request.send(null);
-    }
+   var username = $('#usernameLogin').val();
+   var password = $('#passwordLogin').val();
+   var tooltip = $('loginTooltip');
+   var data = {username: username, password: password};
+   $.ajax({
+        url: "/sitelogin",
+        type: "get",
+        data: data,
+        complete: function (response, textStatus, jqXHR){
+            // Log a message to the console
+            console.log(response);
+            console.log(response.responseText);
+            console.log(textStatus);
+            if (response.responseText == 'denied') {
+                console.log('denied');
+                var logtooltip = $('#loginTooltip');
+                logtooltip.html('<h6>The username/password entered are incorrect.</h6>');
+            } else if (response.responseText == 'okay') {
+                console.log('okay');
+                window.location = 'localhost:3000/';
+
+
+            }
+        }
+    });
 };
 
-function checkLogin() {
-    if ((request.readyState == 4) && (request.status == 200)) {
-        if (request.responseText == 'username_denied') {
-            var logtooltip = $('loginTooltip');
-            logtooltip.html('The username entered does not exist.');
-        } else if (request.responseText == 'okay') {
-            window.location = 'localhost:3000/';
-        } else {
-            var logtooltip = $('loginTooltip');
-            logtooltip.html('The username/email you have entered does not exist.');
-
-        }
-    }
-
-}
-
-function loginStatus (err, results, fields, username, password) {
-        var match = JSON.stringify(results);
-        console.log('usernames matching: ' + results.length + ' and the full result: ' + results);
-        console.log('username does exist, this is the info available: ' + username +' and the results: ' + match + '. and the errors: ' + err );
-        console.log('this is the result password match: ' );
-        return true;
-}
