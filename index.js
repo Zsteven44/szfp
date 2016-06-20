@@ -57,19 +57,7 @@ var sess;
 //                   //
 ///////////////////////
 
-app.get('/', UserLoggedInCheck, HomeRender)
-
-
-    var data = userLoggedInCheck;
-
-
-    console.log('This is the JSON.stringify(req.cookies): ' + JSON.stringify(req.cookies));
-    console.log('This is the JSON.stringify(req.session): ' + JSON.stringify(req.session));
-    console.log('This is the JSON.stringify(req.session.id): ' + JSON.stringify(req.session.id));
-    console.log('This is the (req.session.id): ' + (req.session.id));
-
-    res.render('home', data);
-});
+app.get('/', UserLoggedInCheck, HomeRender);
 
 app.get('/about', function(req,res){
     if (req.session.id) {
@@ -172,6 +160,60 @@ app.post('/registerAccount', function(req,res) {
 })
 
 
+
+var server = app.listen(app.get('port'), function(){
+    console.log('Express started on http://localhost:' + app.get('port') + '; press cntrl+C to terminate.');
+});
+
+function UserLoggedInCheck (req, res, next) {
+    sess = req.session;
+    console.log('This is the session id, checking to see if it exists (index.js): ' + sess.id);
+    if (sess) {
+            console.log('The session exists (index.js)' + JSON.stringify(req.session));
+            connection.query('SELECT * from users WHERE session_id = "' + sess.id + '"', function (err, results, fields) {
+                if (err) {
+                    console.log(err + ', there was an error, (index.js)');
+                    throw error;
+                } else if (results.length == 1) {
+                    sess.data = {username: results.username, userid: results.user_id, fname: results.firstname, cartcount: 0};
+                    console.log('the user id is:' + sess.data.userid +'. The username is: ' + sess.data.username +'. The firstname is: ' + sess.data.fname + ', (index.js line 191).');
+                    next(sess.data);
+                } else {
+                    console.log('There was no existing session that matched (index.js);');
+                    sess.data = null;
+                    next(sess.data);
+                }
+            });
+
+    } else {
+        console.log('there is no session for this user.  This case should not occur.');
+
+    }
+
+
+}
+
+function HomeRender(req,res, err, data) {
+
+        sess = req.session;
+
+        console.log('This is the JSON.stringify(req.cookies): ' + JSON.stringify(req.cookies));
+        console.log('This is the JSON.stringify(req.session): ' + JSON.stringify(sess));
+        console.log('This is the JSON.stringify(req.session.id): ' + JSON.stringify(sess.id));
+        console.log('This is the (req.session.id): ' + (sess.id));
+        console.log('This is sess.data: ' + sess.data);
+        console.log('This is the data: ' + data);
+        if (err) {
+            throw error;
+        } else if (data == null) {
+            res.render('home');
+        } else {
+            res.render('home', data);
+        }
+
+};
+
+
 // custom 404 page
 app.use(function(req,res){
     res.status(404);
@@ -184,33 +226,3 @@ app.use(function(err, req, res, next){
     res.status(500);
     res.render('500');
 });
-
-var server = app.listen(app.get('port'), function(){
-    console.log('Express started on http://localhost:' + app.get('port') + '; press cntrl+C to terminate.');
-});
-
-function UserLoggedInCheck (req, res) {
-    sess = req.session;
-    if (sess) {
-            connection.query('SELECT * from users WHERE session_id = "' + sess.id '"', function (err, results, fields) {
-                if (err) {
-                    throw error;
-                } else if (results == 1) {
-                    var data = {username: results.username, userid: results.user_id, fname: results.firstname, cartcount: 0}
-                    console.log('the user id is:' + data.userid +'. The username is: ' + data.username +'. The firstname is: ' + fname + '.');
-                    return data;
-                } else {
-                // this would need to save the session for an unlogged user.
-                }
-            });
-
-    } else {
-        console.log('there is no session for this user.  This case should not occur.');
-
-    }
-
-}
-
-function HomeRender(req,res) {
-
-}
