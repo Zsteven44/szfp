@@ -169,46 +169,42 @@ function UserLoggedInCheck (req, res, next) {
     sess = req.session;
     console.log('This is the session id, checking to see if it exists (index.js): ' + sess.id);
     if (sess) {
-            console.log('The session exists (index.js)' + JSON.stringify(req.session));
-            connection.query('SELECT * from users WHERE session_id = "' + sess.id + '"', function (err, results, fields) {
-                if (err) {
-                    console.log(err + ', there was an error, (index.js)');
-                    throw error;
-                } else if (results.length == 1) {
-                    sess.data = {username: results.username, userid: results.user_id, fname: results.firstname, cartcount: 0};
-                    console.log('the user id is:' + sess.data.userid +'. The username is: ' + sess.data.username +'. The firstname is: ' + sess.data.fname + ', (index.js line 191).');
-                    next(sess.data);
-                } else {
-                    console.log('There was no existing session that matched (index.js);');
-                    sess.data = null;
-                    next(sess.data);
-                }
-            });
-
+        console.log('The session exists: ' + JSON.stringify(req.session));
+        connection.query('SELECT * from users WHERE session_id = "' + sess.id + '"', function (err, results, fields) {
+            LoggedInCheck2(err, results, next);
+        });
     } else {
         console.log('there is no session for this user.  This case should not occur.');
 
     }
-
-
 }
 
-function HomeRender(req,res, err, data) {
+function LoggedInCheck2(err, results, next) {
+    if (err) {
+        console.log(err + ', there was an error.');
+        throw error;
+    } else if (results.length == 1) {
+        sess.data = {isLogged: true, username: results[0].username, userid: results[0].user_id, fname: results[0].firstname, cartcount: 0};
+        console.log(results);
+        console.log('the user id is:' + sess.data.userid +'. The username is: ' + sess.data.username +'. The firstname is: ' + sess.data.fname + '.');
 
+        next();
+    } else {
+        console.log('There was no existing session that matched.');
+        sess.data = {isLogged: false, username: null, userid: null, fname: null, cartcount: 0};;
+        next();
+    }
+}
+
+
+
+function HomeRender(req,res) {
         sess = req.session;
 
-        console.log('This is the JSON.stringify(req.cookies): ' + JSON.stringify(req.cookies));
-        console.log('This is the JSON.stringify(req.session): ' + JSON.stringify(sess));
-        console.log('This is the JSON.stringify(req.session.id): ' + JSON.stringify(sess.id));
-        console.log('This is the (req.session.id): ' + (sess.id));
-        console.log('This is sess.data: ' + sess.data);
-        console.log('This is the data: ' + data);
-        if (err) {
-            throw error;
-        } else if (data == null) {
-            res.render('home');
+        if (sess.data.isLogged == true) {
+            res.render('home', sess.data, layout:"loggedin");
         } else {
-            res.render('home', data);
+            res.render('home', sess.data);
         }
 
 };

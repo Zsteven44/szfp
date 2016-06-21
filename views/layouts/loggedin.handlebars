@@ -1,0 +1,196 @@
+<!doctype html PUBLIC "-/W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA=Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="handlebars-v4.0.5.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="javascript/facebook.js" type="application/javascript"></script>
+    <script src="javascript/main.js" type="application/javascript"></script>
+
+    <script src="javascript/utils.js" type="application/javascript"></script>
+    <script src="javascript/ajaxsetup.js" type="application/javascript"></script>
+    <script src="javascript/validation.js" type="application/javascript"></script>
+    <link href="stylesheets/bootstrap-social.css" type="text/css" rel="stylesheet">
+    <link href="stylesheets/main.css" type="text/css" rel="stylesheet">
+
+    <title>ggscrub</title>
+</head>
+
+<body>
+<!-- facebook sdk for javascript -->
+<div id="fb-root"></div>
+
+<div class="main-header">
+    <!-- Navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- experimental extra items -->
+                <ul class="nav navbar-nav">
+                    <li><a href="#menu" id="nav-menu-button" data-toggle="modal"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></a></li> <!-- Menu button -->
+                </ul>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search Products">
+                    </div>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </form>
+                <ul class="nav navbar-nav">
+                    <li><a href="/about" id="nav-about-button">About GGscrub<span class="sr-only">(current)</span></a></li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/cart" id="nav-cart-button">
+                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> {{cartcount}} Cart <span id="cart-cost"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" id="nav-user-button">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <p>{{username}} is logged in.</p>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <!-- Logo at header -->
+
+    <div class="logo-container">
+        <div class="container">
+            <a href="/">
+                <img id='logo' src="/img/gglogo.jpg" alt="ggscrub logo" width="350px" height="200px">
+            </a>
+        </div>
+    </div>
+
+    <!-- product nav bar -->
+
+
+    <div class="product-navbar-container">
+        <ul class="product-navbar-ul">
+            <li class="product-navbar-li"><a>Home</a></li>
+            <li class="product-navbar-li"><a>New</a></li>
+            <li class="product-navbar-li"><a>Apparel</a></li>
+            <li class="product-navbar-li"><a>Accessories</a></li>
+            <li class="product-navbar-li"><a>Tech.</a></li>
+        </ul>
+    </div>
+
+</div>
+
+
+
+{{{body}}}
+
+
+<div class="main-footer">
+    <div class="row">
+        <div class="col-md-2 col-md-offset-2">
+            <h3>Newsletter</h3>
+            <p>Subscribe to the newsletter to hear about exclusive offers and new merchandise!</p>
+        </div>
+        <div class="col-md-2">
+            <h3>Main Links</h3>
+            <ul>
+                <li><a>Home</a></li>
+                <li><a>Shirts</a></li>
+                <li><a>Hoodies</a></li>
+                <li><a>Hats</a></li>
+                <li><a>Accessories</a></li>
+            </ul>
+        </div>
+        <div class="col-md-2">
+            <h3>Important Information</h3>
+        </div>
+        <div class="col-md-2">
+            <h3>Get in Touch!</h3>
+            <div class="footer">
+                <br>
+                <div
+                        class="fb-like"
+                        data-share="true"
+                        data-width="200"
+                        data-show-faces="true">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <br>
+            <h5>Accepted Payments</h5>
+            <i href='https://payments.intuit.com/payments/landing_pages/LB/default.jsp?c=VMAD&l=H&s=1&b=000000'target='_blank'><img alt='Credit card logos' title='Credit card logos' src='//payments.intuit.com/payments/landing_pages/LB/default.jsp?c=VMAD&l=H&s=1&b=000000'/></i>
+            <br>
+            <h6>© 2016, GGscrub</h6>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="menu" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></i>
+            </div>
+            <div class="modal-body">
+                <h4>View:</h4>
+                <ul class="modal-ul">
+                    <li class="modal-li"><a href="/"><h5>Home</h5></a></li>
+                    <li class="modal-li"><a href="/tshirts"><h5>Shirts</h5></a></li>
+                    <li class="modal-li"><a href="/hoodies"><h5>Hoodies</h5></a></li>
+                    <li class="modal-li"><a href="/"><h5>Accessories</h5></a></li>
+                    <li class="modal-li"><a href="/"><h5>Hats</h5></a></li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-default" data-dismiss="modal">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/javascript/angular.min.js"></script>
+
+
+
+
+
+</body>
+</html>

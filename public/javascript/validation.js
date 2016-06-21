@@ -343,7 +343,7 @@ function siteLogin() {
                 logtooltip.html('<h6>The username/password entered are incorrect.</h6>');
             } else if (response.responseText == 'okay') {
                 console.log('okay');
-                window.location = 'localhost:3000/';
+                window.location.href = 'localhost:3000/registering';
 
 
             }
