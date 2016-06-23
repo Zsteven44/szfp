@@ -57,26 +57,37 @@ var sess;
 //                   //
 ///////////////////////
 
-app.get('/', UserLoggedInCheck, HomeRender);
-
-app.get('/about', UserLoggedInCheck, AboutRender);
-
-app.get('/login', function(req,res){
-    res.render('login');
+app.get('/', UserLoggedInCheck, function (req,res) {
+    sess = req.session;
+    res.render('home', sess.data);
 });
 
-app.get('/tshirts', function(req,res){
-    res.render('tshirts');
+app.get('/about', UserLoggedInCheck, function (req,res){
+    sess = req.session;
+    res.render('about', sess.data);
 });
 
-app.get('/hoodies', function(req,res){
-    res.render('hoodies');
+app.get('/login', UserLoggedInCheck, function (req,res){
+    sess = req.session;
+    res.render('login', sess.data);
 });
-app.get('/cart', function(req,res){
-    res.render('cart');
+
+app.get('/tshirts', UserLoggedInCheck, function (req,res){
+    sess = req.session;
+    res.render('tshirts', sess.data);
 });
-app.get('/registering', function(req,res){
-    res.render('registering');
+
+app.get('/hoodies', UserLoggedInCheck, function (req,res){
+    sess = req.session;
+    res.render('hoodies', sess.data);
+});
+app.get('/cart', UserLoggedInCheck, function (req,res){
+    sess = req.session;
+    res.render('cart', sess.data);
+});
+app.get('/registering', UserLoggedInCheck, function (req,res){
+    sess = req.session;
+    res.render('registering', sess.data);
 });
 
 ///////////////
@@ -129,6 +140,7 @@ app.get('/sitelogin', function(req, res) {
                     throw error;
                 } else {
                     console.log('this is the new sess.id: ' + req.session.id);
+                    sess.data = {isLogged: true, username: results[0].username, userid: results[0].user_id, fname: results[0].firstname, cartcount: 0};
 
                     res.status(200).send("okay");
                 }
@@ -148,15 +160,15 @@ app.post('/registerAccount', function(req,res) {
     var lastname = req.body.lname;
     var TABLE = "users";
     var transporter = nodemailer.createTransport({
-        service: "ggscrub",
+        service: "gmail",
         debug: true,
         auth: {
-            user: 'zsteven@ggscrub.com',
-            pass: 'sz@ggscrub44'
+            user: 'zsteven44@gmail.com',
+            pass: 'Chogath44!'
         }
     });
     var mailOptions = {
-        from: 'Steven Zafrani <zsteven@ggscrub.com>',
+        from: 'Steven Zafrani <zsteven44@gmail.com>',
         to: email,
         subject: "GGscrub Registration Notice",
         text: 'This is an email confirming your account creation at GGscrub.com. Submission by ' + firstname + ' ' + lastname + ' with the username ' + username + '.',
@@ -201,34 +213,24 @@ var server = app.listen(app.get('port'), function(){
 
 function UserLoggedInCheck (req, res, next) {
     sess = req.session;
-    console.log('This is the session id, checking to see if it exists (index.js): ' + sess.id);
-    if (sess) {
-        console.log('The session exists: ' + JSON.stringify(req.session));
-        connection.query('SELECT * from users WHERE session_id = "' + sess.id + '"', function (err, results, fields) {
-            LoggedInCheck2(err, results, next);
-        });
+    console.log('This is the session id, checking to see if it exists: ' + sess.id);
+    if (sess.data) {
+        if (sess.data.isLogged == true) {
+            sess.data.layout = 'loggedin';
+            next();
+        } else if (sess.data.isLogged == false) {
+            sess.data.layout = 'main';
+            next();
+        } else {
+            console.log('there is no session for this user.  This case should not occur.');
+        }
     } else {
-        console.log('there is no session for this user.  This case should not occur.');
-
-    }
-}
-
-function LoggedInCheck2(err, results, next) {
-    if (err) {
-        console.log(err + ', there was an error.');
-        throw error;
-    } else if (results.length == 1) {
-        sess.data = {isLogged: true, username: results[0].username, userid: results[0].user_id, fname: results[0].firstname, cartcount: 0};
-        console.log(results);
-        console.log('the user id is:' + sess.data.userid +'. The username is: ' + sess.data.username +'. The firstname is: ' + sess.data.fname + '.');
-
-        next();
-    } else {
-        console.log('There was no existing session that matched.');
-        sess.data = {isLogged: false, username: null, userid: null, fname: null, cartcount: 0};;
+        console.log('New user detected. Creating sess.data...');
+        sess.data = {isLogged: false, username: null, userid: null, fname: null, lastname: null, cartcount: 0, layout:'main'};
         next();
     }
 }
+
 
 ///////////////////
 //               //
@@ -236,29 +238,7 @@ function LoggedInCheck2(err, results, next) {
 //               //
 ///////////////////
 
-function HomeRender(req,res) {
-    sess = req.session;
 
-    if (sess.data.isLogged == true) {
-        sess.data.layout = 'loggedin';
-        res.render('home', sess.data);
-    } else {
-        sess.data.layout='main';
-        res.render('home', sess.data);
-    }
-};
-
-function AboutRender(req,res) {
-    sess = req.session;
-
-    if (sess.data.isLogged == true) {
-        sess.data.layout = 'loggedin';
-        res.render('about', sess.data);
-    } else {
-        sess.data.layout='main';
-        res.render('about', sess.data);
-    }
-};
 
 
 
