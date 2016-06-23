@@ -337,13 +337,14 @@ function siteLogin() {
             console.log(response);
             console.log(response.responseText);
             console.log(textStatus);
+
             if (response.responseText == 'denied') {
                 console.log('denied');
                 var logtooltip = $('#loginTooltip');
                 logtooltip.html('<h6>The username/password entered are incorrect.</h6>');
             } else if (response.responseText == 'okay') {
                 console.log('okay');
-                window.location.href = 'localhost:3000/registering';
+                window.location = 'http://localhost:3000/';
 
 
             }

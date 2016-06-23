@@ -149,7 +149,6 @@ Nav bar styles
     background-color:#FFFFFF;
     color:#737373;
     transition: all 0.5s ease 0s;
-
 }
 #nav-menu-button {
     color: #FFFFFF;
@@ -159,6 +158,21 @@ Nav bar styles
 #nav-menu-button:focus,
 #nav-menu-button:hover,
 #nav-menu-button:active {
+    background-color:#FFFFFF;
+    color:#737373;
+    text-decoration:none;
+    transition: all 0.5s ease 0s;
+}
+
+
+#nav-user-button {
+    color: #FFFFFF;
+    transition: all 0.5s ease 0s;
+}
+
+#nav-user-button:focus,
+#nav-user-button:hover,
+#nav-user-button:active {
     background-color:#FFFFFF;
     color:#737373;
     text-decoration:none;

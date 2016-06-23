@@ -59,11 +59,7 @@ var sess;
 
 app.get('/', UserLoggedInCheck, HomeRender);
 
-app.get('/about', function(req,res){
-    if (req.session.id) {
-        }
-    res.render('about');
-});
+app.get('/about', UserLoggedInCheck, AboutRender);
 
 app.get('/login', function(req,res){
     res.render('login');
@@ -82,6 +78,12 @@ app.get('/cart', function(req,res){
 app.get('/registering', function(req,res){
     res.render('registering');
 });
+
+///////////////
+//           //
+//  QUERIES  //
+//           //
+///////////////
 
 app.get('/checkName', function(req,res) {
     var username = req.query.username;
@@ -116,7 +118,7 @@ app.get('/checkEmail', function(req,res) {
 app.get('/sitelogin', function(req, res) {
     var username = req.query.username;
     var password = req.query.password;
-
+    sess = req.session;
     connection.query('SELECT * FROM users WHERE username ="' + username + '" and password = "' + password + '"', function (err, results, fields) {
         if (err) {
             throw error;
@@ -145,6 +147,31 @@ app.post('/registerAccount', function(req,res) {
     var firstname = req.body.fname;
     var lastname = req.body.lname;
     var TABLE = "users";
+    var transporter = nodemailer.createTransport({
+        service: "ggscrub",
+        debug: true,
+        auth: {
+            user: 'zsteven@ggscrub.com',
+            pass: 'sz@ggscrub44'
+        }
+    });
+    var mailOptions = {
+        from: 'Steven Zafrani <zsteven@ggscrub.com>',
+        to: email,
+        subject: "GGscrub Registration Notice",
+        text: 'This is an email confirming your account creation at GGscrub.com. Submission by ' + firstname + ' ' + lastname + ' with the username ' + username + '.',
+        html: '<p>This is an email confirming your account creation at GGscrub.com. Submission by ' + firstname + ' ' + lastname + ' with the username ' + username + '.</p>'
+
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.log(error);
+        } else {
+            console.log("Message Sent: " + info.response);
+        }
+    });
+
     console.log("username: " + username + ".  Email: " + email +
         ". Full name: " + firstname + " " + lastname + ". The session id saved: " + req.session.id);
 
@@ -155,6 +182,7 @@ app.post('/registerAccount', function(req,res) {
          throw err;
       }
     });
+
     res.status(200).send();
 
 })
@@ -164,6 +192,12 @@ app.post('/registerAccount', function(req,res) {
 var server = app.listen(app.get('port'), function(){
     console.log('Express started on http://localhost:' + app.get('port') + '; press cntrl+C to terminate.');
 });
+
+////////////////////
+//                //
+//  LOG IN CHECK  //
+//                //
+////////////////////
 
 function UserLoggedInCheck (req, res, next) {
     sess = req.session;
@@ -196,18 +230,42 @@ function LoggedInCheck2(err, results, next) {
     }
 }
 
-
+///////////////////
+//               //
+//  PAGE RENDER  //
+//               //
+///////////////////
 
 function HomeRender(req,res) {
-        sess = req.session;
+    sess = req.session;
 
-        if (sess.data.isLogged == true) {
-            res.render('home', sess.data, layout:"loggedin");
-        } else {
-            res.render('home', sess.data);
-        }
-
+    if (sess.data.isLogged == true) {
+        sess.data.layout = 'loggedin';
+        res.render('home', sess.data);
+    } else {
+        sess.data.layout='main';
+        res.render('home', sess.data);
+    }
 };
+
+function AboutRender(req,res) {
+    sess = req.session;
+
+    if (sess.data.isLogged == true) {
+        sess.data.layout = 'loggedin';
+        res.render('about', sess.data);
+    } else {
+        sess.data.layout='main';
+        res.render('about', sess.data);
+    }
+};
+
+
+
+
+
+
+
 
 
 // custom 404 page
