@@ -159,19 +159,19 @@ app.post('/registerAccount', function(req,res) {
     var firstname = req.body.fname;
     var lastname = req.body.lname;
     var TABLE = "users";
-    var transporter = nodemailer.createTransport({
+    var transporter = nodemailer.createTransport("SMTP",{
         service: "gmail",
         debug: true,
         auth: {
-            user: 'zsteven44@gmail.com',
-            pass: 'Chogath44!'
+            user: 'zsteven@ggscrub.com',
+            pass: 'sz@ggscrub44'
         }
     });
     var mailOptions = {
-        from: 'Steven Zafrani <zsteven44@gmail.com>',
+        from: 'Steven Zafrani <zsteven@ggscrub.com>',
         to: email,
         subject: "GGscrub Registration Notice",
-        text: 'This is an email confirming your account creation at GGscrub.com. Submission by ' + firstname + ' ' + lastname + ' with the username ' + username + '.',
+        text: 'This is an email confirming your account creation at GGscrub.com. Submission by ' + firstname + ' ' + lastname + '.  The profile username is ' + username + '.  If you did not create an account at GGscrub.com, please ignore this email.',
         html: '<p>This is an email confirming your account creation at GGscrub.com. Submission by ' + firstname + ' ' + lastname + ' with the username ' + username + '.</p>'
 
     };
