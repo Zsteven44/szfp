@@ -296,9 +296,11 @@ border-width:10px;
 }
 
 
-/*
-cart.handlebars
-*/
+/*////////////////////
+//                  //
+//  cart.handlebars //
+//                  //
+////////////////////*/
 .cart-container {
     margin-top:20px;
     margin-bottom:20px;
@@ -378,4 +380,15 @@ about.handlebars
 */
 .about-header {
     text-align:center;
+}
+
+/*////////////////////////
+//                      //
+//  Profile.Handlebars  //
+//                      //
+////////////////////////*/
+
+.profile-header-title {
+text-align: center;
+color: orange;
 }

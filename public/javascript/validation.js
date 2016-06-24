@@ -311,7 +311,7 @@ function registerAccount(user_name, password, fname, lname, email) {
         { username: user_name , fname: fname, lname: lname, password: password, email: email},
         function(data, status){
             alert("Data: " + data + "\nStatus: " + status);
-            // window.location = '/registering';
+            window.location = '/registering';
         }
 
     );

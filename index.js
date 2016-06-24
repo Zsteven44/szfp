@@ -90,6 +90,17 @@ app.get('/registering', UserLoggedInCheck, function (req,res){
     res.render('registering', sess.data);
 });
 
+app.get('/profile', UserLoggedInCheck, function (req,res){
+    sess = req.session;
+    if (sess.data.isLogged == false) {
+        res.redirect('/login');
+    } else {
+        res.render('profile', sess.data);
+    }
+});
+
+
+
 ///////////////
 //           //
 //  QUERIES  //
@@ -134,14 +145,14 @@ app.get('/sitelogin', function(req, res) {
         if (err) {
             throw error;
         } else if (results.length == 1) {
-
+            console.log("The results: " + results);
+            console.log("This is results[0]: " + results[0]);
+            console.log("Not sure what else to put, json Stringify: " + JSON.stringify(results));
+            sess.data = {isLogged: true, username: results[0].username,  userid: results[0].user_id, email: results[0].email, fname: results[0].firstname, lname: results[0].lastname, cartcount: 0, joindate: results[0].join_date, layout: 'loggedin'};
             connection.query('UPDATE users SET session_id = "' + req.session.id + '" WHERE username = "' + username +'"', function (err, results, fields) {
                 if (err) {
                     throw error;
                 } else {
-                    console.log('this is the new sess.id: ' + req.session.id);
-                    sess.data = {isLogged: true, username: results[0].username, userid: results[0].user_id, fname: results[0].firstname, cartcount: 0};
-
                     res.status(200).send("okay");
                 }
             });
@@ -226,7 +237,7 @@ function UserLoggedInCheck (req, res, next) {
         }
     } else {
         console.log('New user detected. Creating sess.data...');
-        sess.data = {isLogged: false, username: null, userid: null, fname: null, lastname: null, cartcount: 0, layout:'main'};
+        sess.data = {isLogged: false, username: null, userid: null, fname: null, lname: null, joindate: null, email:null, cartcount: 0, layout:'main'};
         next();
     }
 }
