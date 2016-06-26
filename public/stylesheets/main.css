@@ -216,20 +216,25 @@ Nav bar styles
 }
 
 
-/*
-home.handlebars
-*/
+/*////////////////////
+//                  //
+//  home.handlebars //
+//                  //
+////////////////////*/
 
 .home-content {
-margin-top:100px;
+margin-top:10px;
 }
 
 
 
 
-/*
-login.handlebars
-*/
+/*////////////////////////
+//                      //
+//  login.handlebars    //
+//                      //
+////////////////////////*/
+
 .logPage {
 list-style:none;
 margin: 0px;
@@ -391,4 +396,33 @@ about.handlebars
 .profile-header-title {
 text-align: center;
 color: orange;
+}
+.profile-body {
+    margin-left:15px;
+    margin-right:15px;
+
+}
+.profile-content {
+    margin:0px;
+    padding:0px;
+}
+.profile-info-header {
+text-align:left;
+margin-left:60px;
+padding:0px;
+margin-bottom: 50px;
+
+}
+.profile-order-header {
+text-align:right;
+margin-right:140px;
+padding:0px;
+margin-bottom: 50px;
+
+}
+
+.profile-ul {
+    list-style-type:none;
+    margin:0px;
+    paddding:0px;
 }

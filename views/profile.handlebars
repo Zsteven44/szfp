@@ -12,17 +12,48 @@
         </div>
         <div class="profile-body">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
 
-                    <h3>User Information:</h3>
+                    <h3 class="profile-info-header"><u>User Information:</u></h3>
+                    <h5>Username: {{username}}</h5>
                     <h5>Name: {{fname}} {{lname}}</h5>
                     <h5>Email: {{email}}</h5>
                     <h5>Join Date: {{joindate}}</h5>
-
-                    <h5><a class="btn btn-default" role='button' href="#">Change Password</a></h5>
+                    <h5><a class="btn btn-default bg-info" role='button' href="#">View Addresses</a></h5>
+                    <h5><a class="btn btn-default bg-danger" role='button' href="#">Change Password</a></h5>
                 </div>
-                <div class="col-md-6">
-                    <h4>Order History</h4>
+                <div class="col-md-8">
+                    <h3 class="profile-order-header"><u>Order History</u></h3>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h6 class="text-center">Order ID:</h6>
+                            <hr>
+                            <ul class="profile-ul">
+                                <li>#1</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2">
+                            <h6 class="text-center">Date Order Placed:</h6>
+                            <hr>
+                            <ul class="profile-ul">
+                                <li>Date 1</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-center">Item Ordered:</h6>
+                            <hr>
+                            <ul class="profile-ul">
+                                <li>Item 1</li>                                                                   </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2">
+                            <h6 class="text-center">Delivery Address:</h6>
+                            <hr>
+                            <ul class="profile-ul">
+                                <li>Address 1</li>                                                                   </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
