@@ -3,6 +3,7 @@ console.log('This is the window location: ' + window.location.href);
 
 // REGISTRATION SIDE
 
+
 function initPage1() {
     if ( window.location.href == 'http://localhost:3000/login' ) {
         $('#username').on({
@@ -38,6 +39,8 @@ function initPage1() {
         $('#register').click(checkRegister);
         $('#siteLogin').click(siteLogin);
 
+    } else if ($('#nav-logout-button')) {
+        $('#nav-logout-button').click(siteLogout);
     }
 }
 
@@ -321,7 +324,7 @@ function registerAccount(user_name, password, fname, lname, email) {
 
 }
 
-// LOGIN SIDE
+// LOGIN/LOGOUT SIDE
 
 function siteLogin() {
    var username = $('#usernameLogin').val();
@@ -352,3 +355,21 @@ function siteLogin() {
     });
 };
 
+function siteLogout() {
+    var data;
+    $.ajax({
+        url:"/sitelogout",
+        type:"get",
+        data:data,
+        complete:function (response, textStatus, jqXHR) {
+            if (response.responseText = 'okay') {
+                window.location = 'http://localhost:3000/';
+            } else {
+                console.log('There was an error with the res.status.')
+            }
+
+
+        }
+
+    });
+}

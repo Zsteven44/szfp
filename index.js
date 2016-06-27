@@ -99,6 +99,16 @@ app.get('/profile', UserLoggedInCheck, function (req,res){
     }
 });
 
+//////////////////
+//              //
+//  PRODUCTS    //
+//              //
+//////////////////
+
+app.get('/products/sample-item-1', function(req,res){
+    res.render('sample-item-1')
+});
+
 
 
 ///////////////
@@ -210,17 +220,32 @@ app.post('/registerAccount', function(req,res) {
 
 })
 
+app.get('/sitelogout', function (req,res) {
+    sess=req.session;
+        if (sess.data) {
+            if (sess.data.isLogged == true) {
+                console.log(sess.data.username + ' is logging out...')
+                sess.data = {isLogged:false, username:null,userid:null, fname:null, lname:null, joindate:null, email:null, cartcount: 0, layout:'main'};
+            } else {
+                console.log('Error with UserLogOut sess.data.isLogged.');
+            }
+        } else {
+            console.log('Error with UserLogOut sess.data.');
 
+    }
+    res.status(200).send('okay');
+
+});
 
 var server = app.listen(app.get('port'), function(){
     console.log('Express started on http://localhost:' + app.get('port') + '; press cntrl+C to terminate.');
 });
 
-////////////////////
-//                //
-//  LOG IN CHECK  //
-//                //
-////////////////////
+//////////////////////////
+//                      //
+//  LOG IN / LOG OUT    //
+//                      //
+//////////////////////////
 
 function UserLoggedInCheck (req, res, next) {
     sess = req.session;
@@ -242,6 +267,21 @@ function UserLoggedInCheck (req, res, next) {
     }
 }
 
+
+function UserLogOut (req,res,next) {
+    sess=req.session;
+    if (sess.data) {
+        if (sess.data.isLogged == true) {
+            console.log(sess.data.username + ' is logging out...')
+            sess.data = {isLogged:false, username:null,userid:null, fname:null, lname:null, joindate:null, email:null, cartcount: 0, layout:'main'};
+        } else {
+            console.log('Error with UserLogOut sess.data.isLogged.');
+        }
+    } else {
+        console.log('Error with UserLogOut sess.data.');
+
+    }
+}
 
 ///////////////////
 //               //
