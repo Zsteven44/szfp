@@ -1,6 +1,8 @@
+
+
 $('.dropdown-toggle').dropdown();
 
 
-$('#divNewNotifications li').on('click', function() {
-    $('#dropdown_title').html($(this).find('a').html());
+$('#product-dropdown-style-options li').on('click', function() {
+    $('#product-dropdown-style-title').html($(this).find('a').html());
     });gi
