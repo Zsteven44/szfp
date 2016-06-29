@@ -9,6 +9,7 @@
     background: black;
     padding-top:50px;
     padding-bottom:50px;
+    text-align:center;
 }
 
 html {
@@ -20,7 +21,8 @@ background:black;
 }
 
 #logo {
-    display:block;
+    display:inline-block;
+    text-align:center
     margin-left: auto;
     margin-right: auto;
 }
@@ -480,3 +482,17 @@ display: inline-block;
     font-size:14px;
     transition: all 0.5s ease 0s;
 }
+
+/*////////////////
+//              //
+//  Item Page   //
+//              //
+////////////////*/
+.item-main {
+    margin:0px;
+    padding:0px;
+    display:inline-block;
+}
+
+
+

@@ -48,7 +48,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(favicon(__dirname + '/public/img/ggicon.jpg'))
 app.use(express.static(__dirname + '/public'));
-
+app.use('/products', express.static('public'));
 var sess;
 
 ///////////////////////
@@ -99,14 +99,15 @@ app.get('/profile', UserLoggedInCheck, function (req,res){
     }
 });
 
-//////////////////
-//              //
-//  PRODUCTS    //
-//              //
-//////////////////
+//////////////////////
+//                  //
+//  PRODUCT ROUTES  //
+//                  //
+//////////////////////
 
-app.get('/products/sample-item-1', function(req,res){
-    res.render('sample-item-1')
+app.get('/products/:productid', UserLoggedInCheck, function(req,res){
+    console.log('product to be viewed is: ' + req.params.productid)
+    res.render('products/'+req.params.productid, sess.data)
 });
 
 
@@ -237,9 +238,7 @@ app.get('/sitelogout', function (req,res) {
 
 });
 
-var server = app.listen(app.get('port'), function(){
-    console.log('Express started on http://localhost:' + app.get('port') + '; press cntrl+C to terminate.');
-});
+
 
 //////////////////////////
 //                      //
@@ -310,4 +309,8 @@ app.use(function(err, req, res, next){
     console.error(err.stack);
     res.status(500);
     res.render('500');
+});
+
+var server = app.listen(app.get('port'), function(){
+    console.log('Express started on http://localhost:' + app.get('port') + '; press cntrl+C to terminate.');
 });
