@@ -7,10 +7,17 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="item-body-image">
-                        <img src="img/products/beatsbydre.jpg">
+                        <img class='product-image' id='product-main-image' src="img/products/product-images/beatsbydre.jpg">
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2">
+                    <div class="item-body-image-alts">
+                        <span class="thumbnail product-list-thumbnail"><img class='product-thumbnail' src="img/products/thumbnails/beatsbydre-black-200x200.jpeg"></span>
+                        <span class="thumbnail product-list-thumbnail"><img class='product-thumbnail' src="img/products/thumbnails/beatsbydre-red-200x200.jpg"></span>
+                        <span class="thumbnail product-list-thumbnail"><img class='product-thumbnail' src="img/products/thumbnails/beatsbydre-white-200x200.jpeg"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
                     <div class="item-body-form">
                     <!-- <form action="/cart/add" method="post" id="add-cart-form" class="product-form"> -->
 
@@ -25,16 +32,16 @@
                         <div class="item-body-color">
                             <label class='product-label' for="product-style-select"><h6>Style/Color</h6></label>
 
-                            <select class='product-select' id="product-style-select">
-                                <option value="1"><a href="?variant1">Option 1</a></option>
-                                <option value="2"><a href="?variant2">Option 2</a></option>
-                                <option value="3"><a href="?variant3">Option 3</a></option>
+                            <select name='style' class='product-select' id="product-style-select">
+                                <option value="1">Black</option>
+                                <option value="2">Red</option>
+                                <option value="3">White</option>
                             </select>
                         </div>
                         <div class="item-body-size">
                             <label class='product-label' for="product-size-select"><h6>Size</h6></label>
 
-                            <select class='product-select' id="product-size-select">
+                            <select name='size' class='product-select' id="product-size-select">
                                 <option value="xs">Extra Small</option>
                                 <option value="s">Small</option>
                                 <option value="m">Medium</option>

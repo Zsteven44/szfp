@@ -494,6 +494,11 @@ display: inline-block;
 .item-body-image {
 
 }
+.item-image {
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+}
 .item-main {
     margin:20px 0 0 0;
     padding:0px;
@@ -531,4 +536,20 @@ display: inline-block;
 .product-select {
     color: orange;
 
+}
+.product-list-thumbnail {
+    transition: all 0.15s ease 0s;
+}
+.product-list-thumbnail:hover {
+    outline-style: solid;
+    outline-color: orange;
+
+}
+
+.product-thumbnail {
+    display:block;
+}
+.product-image {
+    max-width:100%;
+    height:auto;
 }

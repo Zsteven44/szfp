@@ -42,12 +42,9 @@ function initPage1() {
     } else if ($('#nav-logout-button')) {
         $('#nav-logout-button').click(siteLogout);
     }
-    if ($('#product-dropdown-style')) {
-            console.log('product dropdown detected...');
-            $('#product-dropdown-style-options li').on('click', function() {
-                console.log('product dropdown has been clicked...');
-                $('#product-dropdown-style-title').html($(this).find('a').html());
-            });
+    if ($('.product-list-thumbnail')) {
+                console.log('product main image detected...');
+                $('.product-list-thumbnail').on('click', changeImage());
     }
 }
 
