@@ -3,7 +3,8 @@ var options = {
   host     : 'localhost',
   user     : 'root',
   password : '',
-  database : 'szfp'
+  database : 'szfp',
+  port     : '8888'
 };
 
 var connection = mysql.createConnection(options);
@@ -19,3 +20,4 @@ connection.connect(function (err) {
 
 
 module.exports = {options: options, connection: connection};
+
