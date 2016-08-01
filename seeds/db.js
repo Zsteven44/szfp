@@ -4,7 +4,7 @@ var options = {
   user     : 'root',
   password : '',
   database : 'szfp',
-  port     : '8888'
+  port     : '3000'
 };
 
 var connection = mysql.createConnection(options);
