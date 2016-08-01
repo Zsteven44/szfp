@@ -67,6 +67,11 @@ app.get('/about', UserLoggedInCheck, function (req,res){
     res.render('about', sess.data);
 });
 
+app.get('/new', UserLoggedInCheck, function (req,res){
+    sess =req.session;
+    res.render('new', sess.data);
+});
+
 app.get('/login', UserLoggedInCheck, function (req,res){
     sess = req.session;
     res.render('login', sess.data);
