@@ -552,4 +552,11 @@ display: inline-block;
 .product-image {
     max-width:100%;
     height:auto;
+
+}
+
+.product-image-src {
+    display:inline;
+    height:225px;
+    width:auto;
 }
