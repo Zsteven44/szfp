@@ -3,8 +3,8 @@ var options = {
   host     : 'localhost',
   user     : 'root',
   password : '',
-  database : 'szfp',
-  port     : '3000'
+  database : 'szfp'
+
 };
 
 var connection = mysql.createConnection(options);
