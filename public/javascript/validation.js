@@ -5,47 +5,44 @@ console.log('This is the window location: ' + window.location.href);
 
 
 function initPage1() {
-    if ( window.location.href == 'http://localhost:3000/login' ) {
+    if ( $('#register') ) {
         $('#username').on({
             change: checkUsername,
             focus: function () {
                    autoRegisterTooltip('username');
                 }
-            });
+        });
         $('#password').on({
                            change: passwordStatus,
                            focus: function () {
                                   autoRegisterTooltip('password');
                                }
-                           });
+        });
         $('#email').on({
                         change: checkEmail,
                         focus: function () {
                                autoRegisterTooltip('email');
                             }
-                        });
+        });
         $('#firstname').on({
                            change: checkFirstName,
                            focus: function () {
                                   autoRegisterTooltip('firstname');
                                }
-                           });;
+        });
         $('#lastname').on({
                            change: checkLastName,
                            focus: function () {
                                   autoRegisterTooltip('lastname');
                                }
-                           });;
+        });
         $('#register').click(checkRegister);
         $('#siteLogin').click(siteLogin);
 
     } else if ($('#nav-logout-button')) {
         $('#nav-logout-button').click(siteLogout);
     }
-    if ($('.product-list-thumbnail')) {
-                console.log('product main image detected...');
-                $('.product-list-thumbnail').on('click', changeImage());
-    }
+
 }
 
 function autoRegisterTooltip(object) {

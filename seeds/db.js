@@ -2,7 +2,7 @@ var mysql      = require('mysql');
 var options = {
   host     : 'localhost',
   user     : 'root',
-  password : 'greenguy44',
+  password : '',
   database : 'szfp'
 
 };

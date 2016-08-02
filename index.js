@@ -28,7 +28,7 @@ var handlebars = require('express3-handlebars').create({defaultLayout:'main'});
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 3000);
 
 // session setup
 app.use(cookieParser());
@@ -65,6 +65,10 @@ app.get('/', UserLoggedInCheck, function (req,res) {
 app.get('/about', UserLoggedInCheck, function (req,res){
     sess = req.session;
     res.render('about', sess.data);
+});
+app.get('/contactus', UserLoggedInCheck, function (req,res){
+    sess = req.session;
+    res.render('contactus', sess.data);
 });
 
 app.get('/new', UserLoggedInCheck, function (req,res){
