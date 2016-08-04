@@ -6,7 +6,7 @@ var favicon = require('serve-favicon');
 //
 // var hash = require('./pass').hash;
 //
-
+var logger = require("morgan");
 var nodemailer = require("nodemailer");
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -31,6 +31,8 @@ app.set('view engine', 'handlebars');
 app.set('port', process.env.PORT || 3000);
 
 // session setup
+app.use(logger("short")); // This is new
+
 app.use(cookieParser());
 app.use(session({
     genid: function(req) {
@@ -69,6 +71,10 @@ app.get('/about', UserLoggedInCheck, function (req,res){
 app.get('/contactus', UserLoggedInCheck, function (req,res){
     sess = req.session;
     res.render('contactus', sess.data);
+});
+app.get('/accessories', UserLoggedInCheck, function (req,res){
+    sess = req.session;
+    res.render('accessories', sess.data);
 });
 
 app.get('/new', UserLoggedInCheck, function (req,res){
