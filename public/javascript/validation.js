@@ -38,10 +38,12 @@ function initPage1() {
         });
         $('#register').click(checkRegister);
         $('#siteLogin').click(siteLogin);
-
+        console.log('registration button recognized.');
     } else if ($('#nav-logout-button')) {
         $('#nav-logout-button').click(siteLogout);
+        console.log('logout button recognized.');
     }
+
 
 }
 
@@ -348,7 +350,7 @@ function siteLogin() {
                 logtooltip.html('<h6>The username/password entered are incorrect.</h6>');
             } else if (response.responseText == 'okay') {
                 console.log('okay');
-                window.location = 'http://localhost:3000/';
+                window.location = '/';
 
 
             }
@@ -364,7 +366,7 @@ function siteLogout() {
         data:data,
         complete:function (response, textStatus, jqXHR) {
             if (response.responseText = 'okay') {
-                window.location = 'http://localhost:3000/';
+                window.location = '/';
             } else {
                 console.log('There was an error with the res.status.')
             }
