@@ -31,7 +31,7 @@ app.set('view engine', 'handlebars');
 app.set('port', process.env.PORT || 3000);
 
 // session setup
-app.use(logger("short")); // This is new
+app.use(logger("short")); // This is newly added,
 
 app.use(cookieParser());
 app.use(session({
