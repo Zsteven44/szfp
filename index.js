@@ -196,7 +196,7 @@ app.post('/registerAccount', function(req,res) {
     var firstname = req.body.fname;
     var lastname = req.body.lname;
     var TABLE = "users";
-    var transporter = nodemailer.createTransport("SMTP",{
+    /* var transporter = nodemailer.createTransport("SMTP",{
         service: "gmail",
         debug: true,
         auth: {
@@ -220,7 +220,7 @@ app.post('/registerAccount', function(req,res) {
             console.log("Message Sent: " + info.response);
         }
     });
-
+    */
     console.log("username: " + username + ".  Email: " + email +
         ". Full name: " + firstname + " " + lastname + ". The session id saved: " + req.session.id);
 
